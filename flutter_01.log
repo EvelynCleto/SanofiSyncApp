@@ -1,0 +1,69 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+HttpException: HttpException: Connection closed before full header was received, uri = http://localhost:49764/devtools/page/667236E9AC5279C075A776FC1CE7A9B8
+
+```
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.24.0, on Microsoft Windows [versÆo 10.0.19045.4651], locale pt-BR)
+    [32m•[39m Flutter version 3.24.0 on channel stable at C:\sanofi\sanofi\flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision 80c2e84975 (13 days ago), 2024-07-30 23:06:49 +0700
+    [32m•[39m Engine revision b8800d88be
+    [32m•[39m Dart version 3.5.0
+    [32m•[39m DevTools version 2.37.2
+
+[32m[✓][39m Windows Version (Installed version of Windows is version 10 or higher)
+
+[33m[!][39m Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+    [32m•[39m Android SDK at C:\Users\evelync\AppData\Local\Android\Sdk
+    [32m•[39m Platform android-34, build-tools 34.0.0
+    [32m•[39m ANDROID_HOME = C:\Users\evelync\Downloads\jdk-20_windows-x64_bin
+    [32m•[39m Java binary at: C:\Program Files\Android\Android Studio\jbr\bin\java
+    [32m•[39m Java version OpenJDK Runtime Environment (build 17.0.11+0--11852314)
+    [31m✗[39m Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/to/windows-android-setup for more details.
+
+[32m[✓][39m Chrome - develop for the web
+    [32m•[39m Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[32m[✓][39m Visual Studio - develop Windows apps (Visual Studio Community 2022 17.9.5)
+    [32m•[39m Visual Studio at C:\Program Files\Microsoft Visual Studio\2022\Community
+    [32m•[39m Visual Studio Community 2022 version 17.9.34723.18
+    [32m•[39m Windows 10 SDK version 10.0.22621.0
+
+[32m[✓][39m Android Studio (version 2024.1)
+    [32m•[39m Android Studio at C:\Program Files\Android\Android Studio
+    [32m•[39m Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    [32m•[39m Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    [32m•[39m Java version OpenJDK Runtime Environment (build 17.0.11+0--11852314)
+
+[32m[✓][39m VS Code (version 1.92.1)
+    [32m•[39m VS Code at C:\Users\evelync\AppData\Local\Programs\Microsoft VS Code
+    [32m•[39m Flutter extension version 3.94.0
+
+[32m[✓][39m Connected device (3 available)
+    [32m•[39m Windows (desktop) • windows • windows-x64    • Microsoft Windows [versÆo 10.0.19045.4651]
+    [32m•[39m Chrome (web)      • chrome  • web-javascript • Google Chrome 127.0.6533.100
+    [32m•[39m Edge (web)        • edge    • web-javascript • Microsoft Edge 127.0.2651.98
+    [33m![39m Device RQCTC0120DW is not authorized.
+      You might need to check your device for an authorization dialog.
+
+[32m[✓][39m Network resources
+    [32m•[39m All expected network resources are available.
+
+[33m![39m Doctor found issues in 1 category.
+```
