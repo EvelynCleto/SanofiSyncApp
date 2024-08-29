@@ -10,7 +10,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '../../login_cadastro/welcome/welcome_widget.dart';
 import 'my_account_model.dart';
 import '../../gestao/gestao/gestao_widget.dart';
-
+import '../reservas/reservas_widget.dart'; // Certifique-se de que o caminho está correto
+import '../../login_cadastro/notification_allow/notification_allow_widget.dart';
 export 'my_account_model.dart';
 
 class MyAccountWidget extends StatefulWidget {
@@ -46,133 +47,37 @@ class _MyAccountWidgetState extends State<MyAccountWidget> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear(); // Limpa todas as preferências
 
-    Navigator.pushAndRemoveUntil(
-      context,
+    // Remover todas as rotas até a raiz e empurrar a nova tela
+    Navigator.of(context).popUntil((route) => route.isFirst);
+    Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => const WelcomeWidget()),
-      (Route<dynamic> route) => false,
+      (route) => false,
     );
   }
 
- Future<void> cadastrarFuncionarioPeloGestor(
-    String nomeFuncionario, 
-    String emailFuncionario, 
-    String nomeTreinamento, 
-    String dataTreinamento) async {
-  try {
-    // Cadastro do funcionário pelo gestor
-    print('Gestor cadastrando funcionário: Nome=$nomeFuncionario, Email=$emailFuncionario');
-
-    // Insere o funcionário no banco, da mesma forma como ocorre no fluxo de cadastro normal
-    await inserirFuncionarioNoBanco(nomeFuncionario, emailFuncionario);
-    print('Funcionário cadastrado pelo gestor com sucesso.');
-
-    // Agora, segue o mesmo fluxo de cadastro de treinamento, utilizando o email do funcionário recém-cadastrado
-    await _cadastrarTreinamento(nomeTreinamento, dataTreinamento, emailFuncionario);
-    print('Treinamento associado com sucesso ao funcionário.');
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Funcionário cadastrado pelo gestor e treinamento associado com sucesso!')),
-    );
-  } catch (e) {
-    print('Erro ao cadastrar funcionário pelo gestor ou associar treinamento: $e');
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Erro ao cadastrar funcionário ou treinamento: $e')),
-    );
-  }
-}
-
-
-Future<Map<String, dynamic>?> buscarFuncionarioPorEmail(String email) async {
-  // Função de busca no banco de dados pelo email
-  print('Buscando funcionário pelo email: $email');
-  
-  // Simulação de busca no banco de dados
-  // Aqui você precisa implementar a busca no seu banco de dados Supabase
-  // Retorne os dados do funcionário se encontrado
-  return {
-    'nome': 'Nome Exemplo',
-    'email': email,
-    // Outros dados que precisar
-  };
-}
-
-
-
-Future<void> inserirFuncionarioNoBanco(String nome, String email) async {
-  // Simulação de inserção no banco de dados
-  print('Inserindo funcionário no banco: Nome=$nome, Email=$email');
-  
-  // Aqui você insere o funcionário tanto na tabela `Acesso Geral` quanto na tabela `funcionarios`
-  // Exemplo de verificação se o nome ou o email está ultrapassando os limites
-  if (nome.length > 10) {
-    print('Erro: Nome excede o limite de 10 caracteres.');
-    throw 'Nome muito longo';
-  }
-
-  if (email.length > 50) {
-    print('Erro: Email excede o limite de 50 caracteres.');
-    throw 'Email muito longo';
-  }
-
-  // Simulação de inserção bem-sucedida
-  print('Funcionário inserido com sucesso no banco.');
-}
-
-Future<void> _cadastrarTreinamento(String nomeTreinamento, String dataTreinamento, String emailFuncionario) async {
-  try {
-    print('Iniciando inserção do treinamento no banco: Nome Treinamento=$nomeTreinamento, Data=$dataTreinamento, Email Funcionario=$emailFuncionario');
-
-    if (emailFuncionario.isEmpty) {
-      print('Erro: Email do funcionário não disponível.');
-      throw 'Email do funcionário não disponível';
+  Future<void> cadastrarFuncionarioPeloGestor(
+      String nomeFuncionario,
+      String emailFuncionario,
+      String nomeTreinamento,
+      String dataTreinamento) async {
+    try {
+      // Lógica de cadastro de funcionário
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text('Erro ao cadastrar funcionário ou treinamento: $e')),
+      );
     }
-
-    // Simulação da inserção de treinamento no banco de dados
-    final response = await inserirTreinamentoNoBanco({
-      'nome': nomeTreinamento,
-      'data': dataTreinamento,
-      'funcionario_email': emailFuncionario,
-    });
-
-    if (response != null && response.contains('error')) {
-      print('Erro ao inserir dados no banco de dados: $response');
-      throw 'Erro ao inserir dados no banco de dados';
-    }
-
-    print('Treinamento inserido com sucesso.');
-  } catch (e) {
-    print('Erro ao cadastrar treinamento: $e');
-    throw 'Erro ao cadastrar treinamento: $e';
-  }
-}
-
-Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
-  print('Tentando inserir o treinamento no banco de dados com os seguintes dados: ${dados.toString()}');
-  
-  // Simulação de verificação de limites de caracteres no banco
-  if (dados['nome'] != null && dados['nome']!.length > 10) {
-    print('Erro: O nome do treinamento excede o limite de 10 caracteres.');
-    return 'error';
   }
 
-  if (dados['data'] != null && dados['data']!.length > 10) {
-    print('Erro: A data do treinamento excede o limite de 10 caracteres.');
-    return 'error';
+  Future<void> inserirFuncionarioNoBanco(String nome, String email) async {
+    // Simulação de inserção no banco de dados
   }
 
-  if (dados['funcionario_email'] != null && dados['funcionario_email']!.length > 50) {
-    print('Erro: O email do funcionário excede o limite permitido.');
-    return 'error';
+  Future<void> _cadastrarTreinamento(String nomeTreinamento,
+      String dataTreinamento, String emailFuncionario) async {
+    // Simulação de inserção de treinamento no banco de dados
   }
-
-  // Simulação de inserção bem-sucedida no banco
-  print('Treinamento inserido com sucesso no banco de dados.');
-  return null; // Retorna null se tudo der certo
-}
-
-
-
-
 
   @override
   void dispose() {
@@ -194,7 +99,8 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 30.0, 10.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(10.0, 30.0, 10.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -214,12 +120,13 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
                           padding: EdgeInsets.zero,
                           iconPadding: EdgeInsets.zero,
                           color: Colors.transparent,
-                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: const Color(0x005C5C5C),
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.normal,
-                              ),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: const Color(0x005C5C5C),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                           elevation: 0.0,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -234,13 +141,14 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
                       child: Center(
                         child: Text(
                           'Minha conta',
-                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Readex Pro',
-                                color: const Color(0xFFB751F6),
-                                fontSize: 26.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: const Color(0xFFB751F6),
+                                    fontSize: 26.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                         ),
                       ),
                     ),
@@ -249,7 +157,8 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      20.0, 5.0, 20.0, 0.0),
                   child: Container(
                     width: size.width * 0.9,
                     decoration: BoxDecoration(
@@ -259,9 +168,11 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          const Divider(thickness: 0.5, color: Color(0xFF404951)),
+                          const Divider(
+                              thickness: 0.5, color: Color(0xFF404951)),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -275,10 +186,14 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
                                 ),
                                 Flexible(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       userEmail ?? 'Email não disponível',
-                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
                                             fontFamily: 'Readex Pro',
                                             fontSize: 17.0,
                                             letterSpacing: 0.0,
@@ -291,17 +206,31 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
                               ],
                             ),
                           ),
+
                           const SizedBox(height: 20),
+                          // Agora as opções de Reservar e Notificações aparecem para todos
                           Row(
                             children: [
-                              const Icon(Icons.logout, color: Color(0xFF6F7F8E), size: 24.0),
+                              const Icon(Icons.event,
+                                  color: Color(0xFF6F7F8E), size: 24.0),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 0.0, 0.0),
                                 child: GestureDetector(
-                                  onTap: _logout,
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ReservasWidget(
+                                            usuarioId: userEmail ?? ''),
+                                      ),
+                                    );
+                                  },
                                   child: Text(
-                                    'Logout',
-                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                    'Reservar Eventos/Salas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
                                           fontFamily: 'Readex Pro',
                                           fontSize: 15.0,
                                         ),
@@ -311,22 +240,61 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
                             ],
                           ),
                           const SizedBox(height: 20),
+                          Row(
+                            children: [
+                              const Icon(Icons.notifications,
+                                  color: Color(0xFF6F7F8E), size: 24.0),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 0.0, 0.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    // Navegação para a tela de notificações
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const NotificationAllowWidget()),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Notificações',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 15.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          const SizedBox(height: 20),
+                          // Apenas gestor verá a seção de Gestão
                           if (isGestor) ...[
                             Row(
                               children: [
-                                const Icon(Icons.admin_panel_settings, color: Color(0xFF6F7F8E), size: 24.0),
+                                const Icon(Icons.admin_panel_settings,
+                                    color: Color(0xFF6F7F8E), size: 24.0),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
                                   child: GestureDetector(
                                     onTap: () {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => const GestaoWidget()),
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const GestaoWidget()),
                                       );
                                     },
                                     child: Text(
                                       'Gestão',
-                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
                                             fontFamily: 'Readex Pro',
                                             fontSize: 15.0,
                                           ),
@@ -336,30 +304,35 @@ Future<String?> inserirTreinamentoNoBanco(Map<String, String> dados) async {
                               ],
                             ),
                             const SizedBox(height: 20),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                              child: Row(
-                                children: [
-                                  const Icon(Icons.add_box_outlined, color: Color(0xFF6F7F8E), size: 24.0),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        // Cadastrar treinamento usando o email do usuário
-                                        String funcionarioEmail = 'funcionario@exemplo.com'; 
-                                        _cadastrarTreinamento('Treinamento Exemplo', '2024-08-17', funcionarioEmail);
-                                      },
-                                      child: Text(
-                                        'Cadastrar Treinamento',
-                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 15.0,
-                                            ),
-                                      ),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.logout,
+                                  color: Color(0xFF6F7F8E),
+                                  size: 24.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                    15.0,
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: _logout,
+                                    child: Text(
+                                      'Logout',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 15.0,
+                                          ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ],
                         ],

@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-27:/values-or/values-or.xml",
+            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-33:/values-or/values-or.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\evelync\\.gradle\\caches\\transforms-3\\74f2c7c0548d1c691541664d469ce6c8\\transformed\\browser-1.5.0\\res\\values-or\\values-or.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,165,270,383",
-                        "endColumns": "109,104,112,108",
-                        "endOffsets": "160,265,378,487"
-                    },
-                    "to": {
-                        "startLines": "9,10,11,12",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "790,900,1005,1118",
-                        "endColumns": "109,104,112,108",
-                        "endOffsets": "895,1000,1113,1222"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\evelync\\.gradle\\caches\\transforms-3\\48ddf1e565b2f8b5a50c8f62aa007b94\\transformed\\core-1.13.1\\res\\values-or\\values-or.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\48ddf1e565b2f8b5a50c8f62aa007b94\\transformed\\core-1.13.1\\res\\values-or\\values-or.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -30,11 +13,62 @@
                         "endOffsets": "153,255,358,463,564,666,785,886"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,13",
+                        "startLines": "29,30,31,32,33,34,35,53",
                         "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,158,260,363,468,569,671,1227",
+                        "startOffsets": "2869,2972,3074,3177,3282,3383,3485,5649",
                         "endColumns": "102,101,102,104,100,101,118,100",
-                        "endOffsets": "153,255,358,463,564,666,785,1323"
+                        "endOffsets": "2967,3069,3172,3277,3378,3480,3599,5745"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\dc0f67847eae1e60eb44a619ddb081ea\\transformed\\biometric-1.1.0\\res\\values-or\\values-or.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,175,263,381,508,637,773,904,1051,1153,1291,1435",
+                        "endColumns": "119,87,117,126,128,135,130,146,101,137,143,137",
+                        "endOffsets": "170,258,376,503,632,768,899,1046,1148,1286,1430,1568"
+                    },
+                    "to": {
+                        "startLines": "36,38,42,43,44,45,46,47,48,49,50,51",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3604,3834,4249,4367,4494,4623,4759,4890,5037,5139,5277,5421",
+                        "endColumns": "119,87,117,126,128,135,130,146,101,137,143,137",
+                        "endOffsets": "3719,3917,4362,4489,4618,4754,4885,5032,5134,5272,5416,5554"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\74f2c7c0548d1c691541664d469ce6c8\\transformed\\browser-1.5.0\\res\\values-or\\values-or.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,165,270,383",
+                        "endColumns": "109,104,112,108",
+                        "endOffsets": "160,265,378,487"
+                    },
+                    "to": {
+                        "startLines": "37,39,40,41",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "3724,3922,4027,4140",
+                        "endColumns": "109,104,112,108",
+                        "endOffsets": "3829,4022,4135,4244"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\8a75d2355ad5d3dc15a625a8aa482e72\\transformed\\appcompat-1.4.2\\res\\values-or\\values-or.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,224,334,441,527,631,751,830,911,1002,1095,1198,1293,1393,1486,1581,1677,1768,1858,1947,2057,2161,2267,2378,2482,2600,2763,2869",
+                        "endColumns": "118,109,106,85,103,119,78,80,90,92,102,94,99,92,94,95,90,89,88,109,103,105,110,103,117,162,105,89",
+                        "endOffsets": "219,329,436,522,626,746,825,906,997,1090,1193,1288,1388,1481,1576,1672,1763,1853,1942,2052,2156,2262,2373,2477,2595,2758,2864,2954"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,52",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,224,334,441,527,631,751,830,911,1002,1095,1198,1293,1393,1486,1581,1677,1768,1858,1947,2057,2161,2267,2378,2482,2600,2763,5559",
+                        "endColumns": "118,109,106,85,103,119,78,80,90,92,102,94,99,92,94,95,90,89,88,109,103,105,110,103,117,162,105,89",
+                        "endOffsets": "219,329,436,522,626,746,825,906,997,1090,1193,1288,1388,1481,1576,1672,1763,1853,1942,2052,2156,2262,2373,2477,2595,2758,2864,5644"
                     }
                 }
             ]

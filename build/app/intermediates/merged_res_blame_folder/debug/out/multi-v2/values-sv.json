@@ -1,27 +1,44 @@
 {
     "logs": [
         {
-            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-27:/values-sv/values-sv.xml",
+            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-33:/values-sv/values-sv.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\evelync\\.gradle\\caches\\transforms-3\\74f2c7c0548d1c691541664d469ce6c8\\transformed\\browser-1.5.0\\res\\values-sv\\values-sv.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\5885155e2ee6de358b557772b5b87e06\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-sv\\values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "55,155,255,368",
-                        "endColumns": "99,99,112,97",
-                        "endOffsets": "150,250,363,461"
+                        "startOffsets": "55,114,161,267",
+                        "endColumns": "58,46,105,113",
+                        "endOffsets": "109,156,262,376"
                     },
                     "to": {
-                        "startLines": "9,10,11,12",
+                        "startLines": "54,55,56,57",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "783,883,983,1096",
-                        "endColumns": "99,99,112,97",
-                        "endOffsets": "878,978,1091,1189"
+                        "startOffsets": "5606,5665,5712,5818",
+                        "endColumns": "58,46,105,113",
+                        "endOffsets": "5660,5707,5813,5927"
                     }
                 },
                 {
-                    "source": "C:\\Users\\evelync\\.gradle\\caches\\transforms-3\\48ddf1e565b2f8b5a50c8f62aa007b94\\transformed\\core-1.13.1\\res\\values-sv\\values-sv.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\8a75d2355ad5d3dc15a625a8aa482e72\\transformed\\appcompat-1.4.2\\res\\values-sv\\values-sv.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,208,311,422,506,608,721,798,873,966,1061,1156,1250,1352,1447,1544,1642,1738,1831,1911,2017,2116,2212,2317,2420,2522,2676,2778",
+                        "endColumns": "102,102,110,83,101,112,76,74,92,94,94,93,101,94,96,97,95,92,79,105,98,95,104,102,101,153,101,79",
+                        "endOffsets": "203,306,417,501,603,716,793,868,961,1056,1151,1245,1347,1442,1539,1637,1733,1826,1906,2012,2111,2207,2312,2415,2517,2671,2773,2853"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,52",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,208,311,422,506,608,721,798,873,966,1061,1156,1250,1352,1447,1544,1642,1738,1831,1911,2017,2116,2212,2317,2420,2522,2676,5425",
+                        "endColumns": "102,102,110,83,101,112,76,74,92,94,94,93,101,94,96,97,95,92,79,105,98,95,104,102,101,153,101,79",
+                        "endOffsets": "203,306,417,501,603,716,793,868,961,1056,1151,1245,1347,1442,1539,1637,1733,1826,1906,2012,2111,2207,2312,2415,2517,2671,2773,5500"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\48ddf1e565b2f8b5a50c8f62aa007b94\\transformed\\core-1.13.1\\res\\values-sv\\values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -30,11 +47,45 @@
                         "endOffsets": "145,247,345,444,552,657,778,879"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,13",
+                        "startLines": "29,30,31,32,33,34,35,53",
                         "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,150,252,350,449,557,662,1194",
+                        "startOffsets": "2778,2873,2975,3073,3172,3280,3385,5505",
                         "endColumns": "94,101,97,98,107,104,120,100",
-                        "endOffsets": "145,247,345,444,552,657,778,1290"
+                        "endOffsets": "2868,2970,3068,3167,3275,3380,3501,5601"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\dc0f67847eae1e60eb44a619ddb081ea\\transformed\\biometric-1.1.0\\res\\values-sv\\values-sv.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,164,250,371,510,640,762,891,1027,1132,1284,1436",
+                        "endColumns": "108,85,120,138,129,121,128,135,104,151,151,126",
+                        "endOffsets": "159,245,366,505,635,757,886,1022,1127,1279,1431,1558"
+                    },
+                    "to": {
+                        "startLines": "36,38,42,43,44,45,46,47,48,49,50,51",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3506,3715,4112,4233,4372,4502,4624,4753,4889,4994,5146,5298",
+                        "endColumns": "108,85,120,138,129,121,128,135,104,151,151,126",
+                        "endOffsets": "3610,3796,4228,4367,4497,4619,4748,4884,4989,5141,5293,5420"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\74f2c7c0548d1c691541664d469ce6c8\\transformed\\browser-1.5.0\\res\\values-sv\\values-sv.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,155,255,368",
+                        "endColumns": "99,99,112,97",
+                        "endOffsets": "150,250,363,461"
+                    },
+                    "to": {
+                        "startLines": "37,39,40,41",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "3615,3801,3901,4014",
+                        "endColumns": "99,99,112,97",
+                        "endOffsets": "3710,3896,4009,4107"
                     }
                 }
             ]

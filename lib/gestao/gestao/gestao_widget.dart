@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:uuid/uuid.dart';
 import '../relatorio/realatorio_widget.dart';
+import '../agendamento/agendamento_widget.dart';
 import '../dados/dados_widget.dart';
 
 class GestaoWidget extends StatefulWidget {
@@ -28,11 +29,13 @@ class _GestaoWidgetState extends State<GestaoWidget> {
   TextEditingController feedbackController = TextEditingController();
   TextEditingController descricaoController = TextEditingController();
   TextEditingController localizacaoController = TextEditingController();
+  TextEditingController departamentoController = TextEditingController();
 
   String? selectedFuncionarioEmail;
   String? selectedFuncionarioId;
   DateTime? dataInicio;
   DateTime? dataFim;
+  String? selectedDepartamento;
 
   bool isLoading = false;
   bool isDescending = true;
@@ -40,6 +43,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
   List<Map<String, dynamic>> treinamentosParaFuncionario = [];
   List<Map<String, dynamic>> treinamentosFiltrados = [];
   List<Map<String, dynamic>> funcionarios = [];
+  List<String> tiposParticipantes = ["Pleno", "Estagiário", "Júnior"];
+  List<String> participantesSelecionados = [];
 
   @override
   void initState() {
@@ -151,7 +156,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
               ),
               actions: <Widget>[
                 TextButton(
-                  child: const Text('Cancelar', style: TextStyle(color: Colors.white54)),
+                  child: const Text('Cancelar',
+                      style: TextStyle(color: Colors.white54)),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -159,14 +165,19 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                 TextButton(
                   child: isLoading
                       ? const CircularProgressIndicator()
-                      : const Text('Cadastrar', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      : const Text('Cadastrar',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                   onPressed: () async {
                     if (nomeController.text.isEmpty ||
                         emailController.text.isEmpty ||
                         cargoController.text.isEmpty ||
                         setorController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Por favor, preencha todos os campos.')),
+                        const SnackBar(
+                            content:
+                                Text('Por favor, preencha todos os campos.')),
                       );
                       return;
                     }
@@ -191,8 +202,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
     );
   }
 
-  Future<void> cadastrarNovoFuncionario(
-    String nome, String cargo, String email, String senha, bool isGestor) async {
+  Future<void> cadastrarNovoFuncionario(String nome, String cargo, String email,
+      String senha, bool isGestor) async {
     try {
       setState(() {
         isLoading = true;
@@ -205,49 +216,51 @@ class _GestaoWidgetState extends State<GestaoWidget> {
       final String hashedPassword = simpleHashPassword(senha);
 
       // Inserir o novo funcionário na tabela 'Acesso Geral'
-      final responseAcessoGeral = await Supabase.instance.client
-          .from('Acesso Geral')
-          .insert({
-            'id_usuario': userId,
-            'email': email,
-            'senha': hashedPassword,
-            'is_gestor': isGestor,
-          })
-          .execute();
+      final responseAcessoGeral =
+          await Supabase.instance.client.from('Acesso Geral').insert({
+        'id_usuario': userId,
+        'email': email,
+        'senha': hashedPassword,
+        'is_gestor': isGestor,
+      }).execute();
 
       // Verificar se o funcionário foi inserido com sucesso na tabela 'Acesso Geral'
       if (responseAcessoGeral.status == 201) {
         // Inserir os dados adicionais na tabela 'funcionarios'
-        final responseFuncionario = await Supabase.instance.client
-            .from('funcionarios')
-            .insert({
-              'id_usuario': userId,
-              'nome': nome,
-              'cargo': cargo,
-              'email': email,
-              'is_ativo': true,
-            })
-            .execute();
+        final responseFuncionario =
+            await Supabase.instance.client.from('funcionarios').insert({
+          'id_usuario': userId,
+          'nome': nome,
+          'cargo': cargo,
+          'email': email,
+          'is_ativo': true,
+        }).execute();
 
         // Verificar se a inserção na tabela 'funcionarios' foi bem-sucedida
         if (responseFuncionario.status == 201) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Funcionário cadastrado com sucesso!')),
+            const SnackBar(
+                content: Text('Funcionário cadastrado com sucesso!')),
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Erro ao cadastrar na tabela funcionarios: ${responseFuncionario.data?.message}')),
+            SnackBar(
+                content: Text(
+                    'Erro ao cadastrar na tabela funcionarios: ${responseFuncionario.data?.message}')),
           );
         }
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erro ao cadastrar no Acesso Geral: ${responseAcessoGeral.data?.message}')),
+          SnackBar(
+              content: Text(
+                  'Erro ao cadastrar no Acesso Geral: ${responseAcessoGeral.data?.message}')),
         );
       }
     } catch (e) {
       // Exibir uma mensagem de erro caso haja uma exceção
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Ocorreu um erro ao cadastrar o funcionário: $e')),
+        SnackBar(
+            content: Text('Ocorreu um erro ao cadastrar o funcionário: $e')),
       );
     } finally {
       // Parar o indicador de carregamento após a conclusão do processo
@@ -289,7 +302,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
 
     if (response.status == 200) {
       setState(() {
-        treinamentosParaFuncionario = List<Map<String, dynamic>>.from(response.data);
+        treinamentosParaFuncionario =
+            List<Map<String, dynamic>>.from(response.data);
         treinamentosFiltrados = treinamentosParaFuncionario;
       });
     } else {
@@ -327,7 +341,9 @@ class _GestaoWidgetState extends State<GestaoWidget> {
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erro ao enviar feedback: ${response.data?.message}')),
+          SnackBar(
+              content:
+                  Text('Erro ao enviar feedback: ${response.data?.message}')),
         );
       }
     } catch (e) {
@@ -348,6 +364,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
     String localizacaoTreinamento,
     DateTime dataInicio,
     DateTime dataFim,
+    String departamentoSelecionado,
+    List<String> participantesSelecionados,
   ) async {
     String? funcionarioId = await buscarIdFuncionario(emailFuncionario);
 
@@ -363,12 +381,16 @@ class _GestaoWidgetState extends State<GestaoWidget> {
     });
 
     try {
-      final response = await Supabase.instance.client.from('treinamentos').insert({
+      final response =
+          await Supabase.instance.client.from('treinamentos').insert({
         'descricao': descricaoTreinamento,
         'localizacao': localizacaoTreinamento,
         'id_funcionario': funcionarioId,
         'data_inicio': dataInicio.toIso8601String(),
         'data_fim': dataFim.toIso8601String(),
+        'departamento': departamentoSelecionado,
+        'participantes': participantesSelecionados
+            .join(", "), // Exemplo de lista separada por vírgula
       }).execute();
 
       if (response.status == 201) {
@@ -378,7 +400,9 @@ class _GestaoWidgetState extends State<GestaoWidget> {
         await carregarTreinamentosFuncionario(funcionarioId);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erro ao adicionar treinamento: ${response.data?.message}')),
+          SnackBar(
+              content: Text(
+                  'Erro ao adicionar treinamento: ${response.data?.message}')),
         );
       }
     } catch (e) {
@@ -429,7 +453,9 @@ class _GestaoWidgetState extends State<GestaoWidget> {
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Erro ao excluir treinamento: ${response.data?.message}')),
+        SnackBar(
+            content:
+                Text('Erro ao excluir treinamento: ${response.data?.message}')),
       );
     }
 
@@ -439,16 +465,23 @@ class _GestaoWidgetState extends State<GestaoWidget> {
   }
 
   void exibirDialogoAdicionarTreinamento(
-      BuildContext context, String emailFuncionario, [Map<String, dynamic>? treinamentoExistente]) {
+      BuildContext context, String emailFuncionario,
+      [Map<String, dynamic>? treinamentoExistente]) {
     // Preencher campos com dados existentes (se for editar)
     if (treinamentoExistente != null) {
       descricaoController.text = treinamentoExistente['descricao'];
       localizacaoController.text = treinamentoExistente['localizacao'];
+      departamentoController.text = treinamentoExistente['departamento'] ?? '';
+      participantesSelecionados = treinamentoExistente['participantes'] != null
+          ? List<String>.from(treinamentoExistente['participantes'].split(', '))
+          : [];
       dataInicio = DateTime.parse(treinamentoExistente['data_inicio']);
       dataFim = DateTime.parse(treinamentoExistente['data_fim']);
     } else {
       descricaoController.clear();
       localizacaoController.clear();
+      departamentoController.clear();
+      participantesSelecionados.clear();
       dataInicio = null;
       dataFim = null;
     }
@@ -464,7 +497,9 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               title: Text(
-                treinamentoExistente == null ? 'Novo Treinamento' : 'Editar Treinamento',
+                treinamentoExistente == null
+                    ? 'Novo Treinamento'
+                    : 'Editar Treinamento',
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -514,6 +549,52 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                           borderSide: const BorderSide(color: Colors.white),
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 10),
+
+                    // Campo de Departamento
+                    TextField(
+                      controller: departamentoController,
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        labelText: 'Departamento',
+                        labelStyle: const TextStyle(color: Colors.white70),
+                        filled: true,
+                        fillColor: const Color(0xFFB751F6).withOpacity(0.2),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(color: Colors.white),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+
+                    // Seleção de Tipos de Participantes
+                    Wrap(
+                      spacing: 10.0,
+                      children: tiposParticipantes.map((tipo) {
+                        final bool selecionado =
+                            participantesSelecionados.contains(tipo);
+                        return ChoiceChip(
+                          label: Text(tipo),
+                          selected: selecionado,
+                          onSelected: (bool selecionado) {
+                            setState(() {
+                              if (selecionado) {
+                                participantesSelecionados.add(tipo);
+                              } else {
+                                participantesSelecionados.remove(tipo);
+                              }
+                            });
+                          },
+                          selectedColor: Colors.purple[200],
+                          backgroundColor: Colors.white,
+                        );
+                      }).toList(),
                     ),
                     const SizedBox(height: 10),
 
@@ -592,7 +673,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
               actions: <Widget>[
                 // Botão Cancelar
                 TextButton(
-                  child: const Text('Cancelar', style: TextStyle(color: Colors.white70)),
+                  child: const Text('Cancelar',
+                      style: TextStyle(color: Colors.white70)),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -602,16 +684,22 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                 TextButton(
                   child: isLoading
                       ? const CircularProgressIndicator()
-                      : Text(treinamentoExistente == null ? 'Adicionar' : 'Salvar',
-                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      : Text(
+                          treinamentoExistente == null ? 'Adicionar' : 'Salvar',
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                   onPressed: () async {
                     // Verificação dos campos obrigatórios
                     if (descricaoController.text.isEmpty ||
                         localizacaoController.text.isEmpty ||
                         dataInicio == null ||
-                        dataFim == null) {
+                        dataFim == null ||
+                        departamentoController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Por favor, preencha todos os campos.')),
+                        const SnackBar(
+                            content:
+                                Text('Por favor, preencha todos os campos.')),
                       );
                       return;
                     }
@@ -623,6 +711,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                       localizacaoController.text,
                       dataInicio!,
                       dataFim!,
+                      departamentoController.text,
+                      participantesSelecionados,
                     );
 
                     Navigator.of(context).pop();
@@ -675,7 +765,9 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                         return IconButton(
                           icon: Icon(
                             Icons.business_center,
-                            color: index < ratingGeral ? Colors.yellow : Colors.white24,
+                            color: index < ratingGeral
+                                ? Colors.yellow
+                                : Colors.white24,
                           ),
                           onPressed: () {
                             setState(() {
@@ -783,7 +875,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                   onPressed: () async {
                     if (feedbackController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Por favor, escreva um feedback.')),
+                        const SnackBar(
+                            content: Text('Por favor, escreva um feedback.')),
                       );
                       return;
                     }
@@ -804,10 +897,12 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                         feedbackController.clear();
                       });
 
-                      Navigator.of(context).pop(); // Fechar o diálogo após enviar o feedback
+                      Navigator.of(context)
+                          .pop(); // Fechar o diálogo após enviar o feedback
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Nenhum funcionário selecionado.')),
+                        const SnackBar(
+                            content: Text('Nenhum funcionário selecionado.')),
                       );
                     }
                   },
@@ -852,7 +947,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
               return Container(
                 decoration: BoxDecoration(
                   color: const Color(0xFFB751F6),
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(20.0)),
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(20.0)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
@@ -876,12 +972,13 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                       const SizedBox(height: 15),
                       Text(
                         'Funcionários Cadastrados',
-                        style: FlutterFlowTheme.of(context).titleMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                       ),
                       const SizedBox(height: 10),
                       Expanded(
@@ -891,7 +988,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                           itemBuilder: (context, index) {
                             final funcionario = funcionarios[index];
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Colors.white,
@@ -924,10 +1022,13 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                                   ),
                                   onTap: () {
                                     setState(() {
-                                      selectedFuncionarioEmail = funcionario['email'];
-                                      selectedFuncionarioId = funcionario['id_usuario'];
+                                      selectedFuncionarioEmail =
+                                          funcionario['email'];
+                                      selectedFuncionarioId =
+                                          funcionario['id_usuario'];
                                     });
-                                    carregarTreinamentosFuncionario(selectedFuncionarioId!);
+                                    carregarTreinamentosFuncionario(
+                                        selectedFuncionarioId!);
                                     Navigator.pop(context);
                                   },
                                 ),
@@ -994,7 +1095,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.feedback_outlined, color: Color(0xFFB751F6)),
+              leading:
+                  const Icon(Icons.feedback_outlined, color: Color(0xFFB751F6)),
               title: const Text(
                 'Fornecer Feedback',
                 style: TextStyle(
@@ -1007,7 +1109,9 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                   exibirDialogoFeedback(context, selectedFuncionarioEmail!);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Por favor, selecione um funcionário primeiro.')),
+                    const SnackBar(
+                        content: Text(
+                            'Por favor, selecione um funcionário primeiro.')),
                   );
                 }
               },
@@ -1026,7 +1130,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.insert_chart_outlined, color: Color(0xFFB751F6)),
+              leading: const Icon(Icons.insert_chart_outlined,
+                  color: Color(0xFFB751F6)),
               title: const Text(
                 'Relatórios',
                 style: TextStyle(
@@ -1038,36 +1143,69 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          RelatoriosWidget(treinamentos: treinamentosParaFuncionario)),       
+                      builder: (context) => RelatoriosWidget(
+                          treinamentos: treinamentosParaFuncionario)),
                 );
               },
             ),
             ListTile(
-            leading: const Icon(Icons.data_usage_rounded, color: Color(0xFFB751F6)), // Novo ícone para dados gerais
-            title: const Text(
-              'Dados Gerais',
-              style: TextStyle(
-                color: Color(0xFFB751F6),
-                fontWeight: FontWeight.bold,
+              leading: const Icon(Icons.data_usage_rounded,
+                  color: Color(0xFFB751F6)), // Novo ícone para dados gerais
+              title: const Text(
+                'Dados Gerais',
+                style: TextStyle(
+                  color: Color(0xFFB751F6),
+                  fontWeight: FontWeight.bold,
+                ),
               ),
+              onTap: () {
+                if (selectedFuncionarioEmail != null &&
+                    selectedFuncionarioEmail!.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          DadosWidget(userEmail: selectedFuncionarioEmail!),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text(
+                            'Por favor, selecione um funcionário primeiro.')),
+                  );
+                }
+              },
             ),
-            onTap: () {
-              if (selectedFuncionarioEmail != null && selectedFuncionarioEmail!.isNotEmpty) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DadosWidget(userEmail: selectedFuncionarioEmail!),
-                  ),
-                );
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Por favor, selecione um funcionário primeiro.')),
-                );
-              }
-            },
-          ),
-
+            ListTile(
+              leading: const Icon(
+                  Icons.calendar_today_rounded, // Novo ícone de agendamento
+                  color: Color(0xFFB751F6)),
+              title: const Text(
+                'Agendamentos',
+                style: TextStyle(
+                  color: Color(0xFFB751F6),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onTap: () {
+                if (selectedFuncionarioEmail != null &&
+                    selectedFuncionarioEmail!.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AgendamentoWidget(),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text(
+                            'Por favor, selecione um funcionário primeiro.')),
+                  );
+                }
+              },
+            ),
           ],
         ),
       ),
@@ -1075,7 +1213,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -1100,10 +1239,10 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                         'MONITORAMENTO',
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                          letterSpacing: 0.0,
-                        ),
+                              fontFamily: 'Readex Pro',
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ),
@@ -1119,7 +1258,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 20.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 20.0),
               child: Container(
                 width: double.infinity,
                 height: 47.0,
@@ -1145,11 +1285,11 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                       child: Text(
                         selectedFuncionarioEmail ?? 'Buscar Treinamentos',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: const Color(0xFF999FA0),
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                              fontFamily: 'Readex Pro',
+                              color: const Color(0xFF999FA0),
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                            ),
                       ),
                     ),
                     IconButton(
@@ -1168,7 +1308,8 @@ class _GestaoWidgetState extends State<GestaoWidget> {
             ),
             if (selectedFuncionarioEmail != null) ...[
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                 child: TextField(
                   controller: searchController,
                   decoration: InputDecoration(
@@ -1194,20 +1335,23 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
                       'Ordenar por data:',
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                     Switch(
                       value: isDescending,
                       onChanged: (value) {
                         setState(() {
                           isDescending = value;
-                          carregarTreinamentosFuncionario(selectedFuncionarioId!);
+                          carregarTreinamentosFuncionario(
+                              selectedFuncionarioId!);
                         });
                       },
                       activeColor: Colors.white,
@@ -1248,53 +1392,64 @@ class _GestaoWidgetState extends State<GestaoWidget> {
                           children: [
                             Text(
                               'Treinamento: ${treinamento['descricao']}',
-                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
                             ),
                             const SizedBox(height: 6),
                             Text(
                               'Localização: ${treinamento['localizacao']}',
-                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white70,
-                                fontSize: 16,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white70,
+                                    fontSize: 16,
+                                  ),
                             ),
                             const SizedBox(height: 6),
                             Text(
                               'Data de Início: ${DateFormat('dd/MM/yyyy').format(DateTime.parse(treinamento['data_inicio']))}',
-                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white70,
-                                fontSize: 16,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white70,
+                                    fontSize: 16,
+                                  ),
                             ),
                             const SizedBox(height: 6),
                             Text(
                               'Data de Término: ${DateFormat('dd/MM/yyyy').format(DateTime.parse(treinamento['data_fim']))}',
-                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white70,
-                                fontSize: 16,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white70,
+                                    fontSize: 16,
+                                  ),
                             ),
                             const SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 IconButton(
-                                  icon: const Icon(Icons.edit, color: Colors.white),
+                                  icon: const Icon(Icons.edit,
+                                      color: Colors.white),
                                   onPressed: () {
-                                    exibirDialogoAdicionarTreinamento(context, selectedFuncionarioEmail!, treinamento);
+                                    exibirDialogoAdicionarTreinamento(context,
+                                        selectedFuncionarioEmail!, treinamento);
                                   },
                                 ),
                                 const SizedBox(width: 10),
                                 IconButton(
-                                  icon: const Icon(Icons.delete, color: Colors.redAccent),
+                                  icon: const Icon(Icons.delete,
+                                      color: Colors.redAccent),
                                   onPressed: () {
                                     excluirTreinamento(treinamento['id']);
                                   },
@@ -1315,10 +1470,13 @@ class _GestaoWidgetState extends State<GestaoWidget> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (selectedFuncionarioEmail != null) {
-            exibirDialogoAdicionarTreinamento(context, selectedFuncionarioEmail!);
+            exibirDialogoAdicionarTreinamento(
+                context, selectedFuncionarioEmail!);
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Por favor, selecione um funcionário primeiro.')),
+              const SnackBar(
+                  content:
+                      Text('Por favor, selecione um funcionário primeiro.')),
             );
           }
         },

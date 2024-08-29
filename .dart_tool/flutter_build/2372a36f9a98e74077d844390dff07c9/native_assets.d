@@ -1,1 +1,0 @@
- C:\\fiap\\sano\\.dart_tool\\flutter_build\\2372a36f9a98e74077d844390dff07c9\\native_assets.yaml: 

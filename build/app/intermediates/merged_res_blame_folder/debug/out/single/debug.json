@@ -1,26 +1,26 @@
 [
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-29:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-23:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-29:/drawable_launch_background.xml.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-23:/drawable/launch_background.xml"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/drawable_launch_background.xml.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-29:/drawable/launch_background.xml"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-23:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-29:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-23:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-29:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-23:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-29:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-23:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-xxxhdpi/ic_launcher.png"
     }
 ]

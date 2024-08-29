@@ -19,7 +19,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 export 'ponto_model.dart';
 
 class PontoWidget extends StatefulWidget {
-  final Function(String, String, String)? onPontoUpdated; // Callback para atualizar os dados em outras telas
+  final Function(String, String, String)?
+      onPontoUpdated; // Callback para atualizar os dados em outras telas
 
   const PontoWidget({super.key, this.onPontoUpdated});
 
@@ -109,7 +110,9 @@ class _PontoWidgetState extends State<PontoWidget> {
         'entry_time': entrada,
         'exit_time': saida,
         'horas_trabalhadas': horasTrabalhadas,
-        'created_at': startTime != null ? startTime!.toIso8601String() : DateTime.now().toIso8601String(),
+        'created_at': startTime != null
+            ? startTime!.toIso8601String()
+            : DateTime.now().toIso8601String(),
       }).execute();
 
       if (response.data == null) {
@@ -129,7 +132,8 @@ class _PontoWidgetState extends State<PontoWidget> {
     } else if (saida.isEmpty) {
       saida = DateFormat('HH:mm').format(DateTime.now());
       final difference = DateTime.now().difference(startTime!);
-      horasTrabalhadas = '${difference.inHours.toString().padLeft(2, '0')}:${(difference.inMinutes % 60).toString().padLeft(2, '0')}';
+      horasTrabalhadas =
+          '${difference.inHours.toString().padLeft(2, '0')}:${(difference.inMinutes % 60).toString().padLeft(2, '0')}';
       startTime = null;
     } else {
       // Reset the point after the user finalizes
@@ -168,11 +172,11 @@ class _PontoWidgetState extends State<PontoWidget> {
                 Text(
                   'Controle de horas do mês',
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
-                    fontFamily: 'Readex Pro',
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                        fontFamily: 'Readex Pro',
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
                 const SizedBox(height: 20),
                 _buildInfoRow(context, 'Entradas:', entrada),
@@ -189,10 +193,11 @@ class _PontoWidgetState extends State<PontoWidget> {
                     width: 120,
                     height: 40,
                     color: Colors.white,
-                    textStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Readex Pro',
-                      color: const Color(0xFFBB4CFF),
-                    ),
+                    textStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: const Color(0xFFBB4CFF),
+                            ),
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
@@ -213,19 +218,19 @@ class _PontoWidgetState extends State<PontoWidget> {
           Text(
             label,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-              fontFamily: 'Readex Pro',
-              color: Colors.white,
-              fontSize: 16.0,
-            ),
+                  fontFamily: 'Readex Pro',
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
           ),
           Text(
             value.isNotEmpty ? value : '--:--',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-              fontFamily: 'Readex Pro',
-              color: Colors.white,
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-            ),
+                  fontFamily: 'Readex Pro',
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
           ),
         ],
       ),
@@ -240,7 +245,8 @@ class _PontoWidgetState extends State<PontoWidget> {
     if (startTime == null) return 0.0;
     final now = DateTime.now();
     final elapsed = now.difference(startTime!).inSeconds;
-    final total = const Duration(hours: 8).inSeconds; // Assuming an 8-hour workday
+    final total =
+        const Duration(hours: 8).inSeconds; // Assuming an 8-hour workday
     return (elapsed / total).clamp(0.0, 1.0);
   }
 
@@ -262,13 +268,15 @@ class _PontoWidgetState extends State<PontoWidget> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 20.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -295,7 +303,9 @@ class _PontoWidgetState extends State<PontoWidget> {
                                     child: Text(
                                       'PONTO',
                                       textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
                                             fontFamily: 'Readex Pro',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
@@ -319,7 +329,8 @@ class _PontoWidgetState extends State<PontoWidget> {
                       Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24.0, 24.0, 24.0, 0.0),
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
@@ -342,29 +353,38 @@ class _PontoWidgetState extends State<PontoWidget> {
                               ),
                               Text(
                                 currentTime,
-                                style: FlutterFlowTheme.of(context).displaySmall.override(
-                                  fontFamily: 'Outfit',
-                                  color: Colors.white,
-                                  fontSize: size.width * 0.07,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .override(
+                                      fontFamily: 'Outfit',
+                                      color: Colors.white,
+                                      fontSize: size.width * 0.07,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                               ),
                             ],
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            10.0, 20.0, 10.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: _marcarPonto,
-                          text: entrada.isEmpty ? 'Marcar Ponto Eletrônico' : saida.isEmpty ? 'Finalizar Ponto' : 'Reiniciar',
+                          text: entrada.isEmpty
+                              ? 'Marcar Ponto Eletrônico'
+                              : saida.isEmpty
+                                  ? 'Finalizar Ponto'
+                                  : 'Reiniciar',
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: size.height * 0.07,
                             padding: EdgeInsets.zero,
                             color: const Color(0xFF701B90),
-                            textStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelLarge
+                                .override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
@@ -379,7 +399,8 @@ class _PontoWidgetState extends State<PontoWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 0.0),
                         child: Container(
                           width: size.width * 0.9,
                           decoration: BoxDecoration(
@@ -387,29 +408,38 @@ class _PontoWidgetState extends State<PontoWidget> {
                             borderRadius: BorderRadius.circular(16.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 20.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 30.0, 0.0, 0.0),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Entradas:',
-                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
                                                   fontFamily: 'Readex Pro',
-                                                  color: const Color(0xFF999FA0),
+                                                  color:
+                                                      const Color(0xFF999FA0),
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
                                           Text(
                                             entrada.isEmpty ? '--:--' : entrada,
-                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
                                                   fontFamily: 'Readex Pro',
                                                   color: Colors.black,
                                                   letterSpacing: 0.0,
@@ -419,19 +449,25 @@ class _PontoWidgetState extends State<PontoWidget> {
                                         ],
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
                                         children: [
                                           Text(
                                             'Saídas:',
-                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
                                                   fontFamily: 'Readex Pro',
-                                                  color: const Color(0xFF999FA0),
+                                                  color:
+                                                      const Color(0xFF999FA0),
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
                                           Text(
                                             saida.isEmpty ? '--:--' : saida,
-                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
                                                   fontFamily: 'Readex Pro',
                                                   color: Colors.black,
                                                   letterSpacing: 0.0,
@@ -445,13 +481,18 @@ class _PontoWidgetState extends State<PontoWidget> {
                                 ),
                                 if (horasTrabalhadas.isNotEmpty)
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           'Horas trabalhadas:',
-                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
                                                 fontFamily: 'Readex Pro',
                                                 color: const Color(0xFF999FA0),
                                                 letterSpacing: 0.0,
@@ -461,7 +502,9 @@ class _PontoWidgetState extends State<PontoWidget> {
                                         ),
                                         Text(
                                           horasTrabalhadas,
-                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
                                                 fontFamily: 'Readex Pro',
                                                 color: Colors.black,
                                                 letterSpacing: 0.0,
@@ -477,7 +520,8 @@ class _PontoWidgetState extends State<PontoWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 0.0),
                         child: Container(
                           width: size.width * 0.9,
                           decoration: BoxDecoration(
@@ -485,15 +529,19 @@ class _PontoWidgetState extends State<PontoWidget> {
                             borderRadius: BorderRadius.circular(16.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 10.0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                20.0, 20.0, 20.0, 10.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment:
+                                      const AlignmentDirectional(-1.0, -1.0),
                                   child: Text(
                                     'Controle de horas do mês:',
-                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
                                           fontFamily: 'Readex Pro',
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
@@ -501,11 +549,14 @@ class _PontoWidgetState extends State<PontoWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
                                   child: Text(
                                     'Veja as suas horas trabalhadas, banco de horas, atestado e férias:',
                                     textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
                                           fontFamily: 'Readex Pro',
                                           color: const Color(0xFF999FA0),
                                           letterSpacing: 0.0,
@@ -513,9 +564,12 @@ class _PontoWidgetState extends State<PontoWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment:
+                                      const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 20.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: _mostrarControleHoras,
                                       text: 'FIND OUT',
@@ -524,7 +578,9 @@ class _PontoWidgetState extends State<PontoWidget> {
                                         height: size.height * 0.05,
                                         padding: EdgeInsets.zero,
                                         color: const Color(0xFF701B90),
-                                        textStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
                                               fontFamily: 'Readex Pro',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
@@ -534,7 +590,8 @@ class _PontoWidgetState extends State<PontoWidget> {
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(24.0),
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
                                       ),
                                     ),
                                   ),
@@ -558,7 +615,8 @@ class _PontoWidgetState extends State<PontoWidget> {
                   color: Colors.white,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      20.0, 0.0, 20.0, 0.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -588,11 +646,14 @@ class _PontoWidgetState extends State<PontoWidget> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => PontoWidget(
-                                onPontoUpdated: (entradaAtualizada, saidaAtualizada, horasTrabalhadasAtualizadas) {
+                                onPontoUpdated: (entradaAtualizada,
+                                    saidaAtualizada,
+                                    horasTrabalhadasAtualizadas) {
                                   setState(() {
                                     entrada = entradaAtualizada;
                                     saida = saidaAtualizada;
-                                    horasTrabalhadas = horasTrabalhadasAtualizadas;
+                                    horasTrabalhadas =
+                                        horasTrabalhadasAtualizadas;
                                   });
                                 },
                               ),

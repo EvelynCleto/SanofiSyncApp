@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-27:/values-v31/values-v31.xml",
+            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-33:/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "C:\\fiap\\sano\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
+                    "source": "C:\\Users\\evely\\Downloads\\sano-20240822T094437Z-001\\sano\\android\\app\\src\\main\\res\\values-v31\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
