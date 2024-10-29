@@ -5,6 +5,11 @@
 
 ---
 
+---
+                                                                             ![Sanofi Sync - Demonstração do Aplicativo](ppt.gif)
+
+---
+
 ## 🎉 Motivação e Desafios Enfrentados
 
 Durante o desenvolvimento do Sanofi Sync, enfrentamos desafios que foram além do código. A Sanofi Medley, que até então geria treinamentos e reservas manualmente por meio de planilhas e registros físicos, nos desafiou a desenvolver uma solução digital robusta que eliminasse fraudes, aumentasse a confiabilidade e otimizasse o tempo dos gestores e colaboradores. Tivemos que desenvolver uma plataforma que fosse altamente segura, flexível e adaptável ao fluxo de trabalho da empresa, superando a limitação das ferramentas anteriores.
