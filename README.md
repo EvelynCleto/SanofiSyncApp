@@ -12,10 +12,10 @@ Durante o desenvolvimento do Sanofi Sync, enfrentamos desafios que foram além d
 
 ---
 
-<h2 align="center">🎥 Nossa Apresentação</h2>
+<h2 align="center">Nossa Apresentação</h2>
 
 <p align="center">
-  <img src="ppt.gif" alt="Sanofi Sync - Demonstração do Aplicativo" width="600"/>
+  <img src="ppt.gif" alt="Sanofi Sync - Demonstração do Aplicativo"/>
 </p>
 
 ---
