@@ -186,3 +186,9 @@ Para mais informações sobre o Sanofi Sync ou para colaborações, entre em con
 <h3 align="center"><strong>Sanofi Sync</strong> – Desenvolvido para simplificar e revolucionar a gestão na Medley, transformando desafios em soluções digitais seguras e eficientes.</h3>
 
 
+
+## Integrantes do Grupo
+
+- **Evelyn Cleto da Silva** - RM: 93026
+- **Eduardo Kenji Pellichero Fujie** - RM: 92869
+- **Roberto Claudio Castro dos Santos** - RM: 96162
