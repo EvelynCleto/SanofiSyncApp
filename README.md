@@ -5,11 +5,7 @@
 
 ---
 
----
-
 ![Sanofi Sync - Demonstração do Aplicativo](ppt.gif)
-
----
 
 ## 🎉 Motivação e Desafios Enfrentados
 
