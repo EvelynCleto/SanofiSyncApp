@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-33:/values-v17/values-v17.xml",
+            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-37:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\8a75d2355ad5d3dc15a625a8aa482e72\\transformed\\appcompat-1.4.2\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\a07643b6cc2ac7ab43e9fa39f185e164\\transformed\\appcompat-1.4.2\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

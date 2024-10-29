@@ -73,142 +73,211 @@ class _PesquisaWidgetState extends State<PesquisaWidget> {
   }
 
   Future<void> _fetchFullHierarchy() async {
-    try {
-      final response = await Supabase.instance.client
-          .from('funcionarios')
-          .select('nome, cargo, nivel_hierarquico')
-          .not('nivel_hierarquico', 'is',
-              null) // Filtra apenas os que têm nível hierárquico
-          .order('nivel_hierarquico', ascending: true)
-          .execute();
+    setState(() {
+      // Hierarquia fixa com supervisores e subordinados
+      userHierarchy = '''
+Maria Oliveira (Gestora de Projetos)
+    ├─ João Pereira (Desenvolvedor Frontend)
+    ├─ Ana Souza (Desenvolvedora Backend)
+    ├─ Carlos Oliveira (UI/UX Designer)
+    └─ Fernanda Costa (QA Engineer)
+''';
 
-      // Verificar o que a API está retornando
-      print('Resposta da API: ${response.data}');
-
-      if (response.data != null && response.data.isNotEmpty) {
-        setState(() {
-          userHierarchy = ''; // Inicializa como string vazia
-
-          // Itera sobre os funcionários válidos e monta a hierarquia
-          for (final funcionario in response.data as List<dynamic>) {
-            final nome = funcionario['nome'] ?? 'Desconhecido';
-            final cargo = funcionario['cargo'] ?? 'Cargo não informado';
-
-            // Concatena o nome e o cargo
-            userHierarchy = '$userHierarchy$nome ($cargo)\n';
-          }
-
-          isLoading = false;
-        });
-      } else {
-        // Se não houver dados, exibe uma mensagem
-        setState(() {
-          userHierarchy =
-              'Nenhum funcionário encontrado com hierarquia definida.';
-          isLoading = false;
-        });
-      }
-    } catch (e) {
-      // Captura e exibe erros no log
-      print('Erro ao buscar a hierarquia: $e');
-      setState(() {
-        userHierarchy = 'Erro ao carregar a hierarquia.';
-        isLoading = false;
-      });
-    }
+      isLoading = false;
+    });
   }
 
-  void _onGestorGeralClick(String nomeGestor) async {
-    try {
-      print(
-          'Nome do Gestor recebido: $nomeGestor'); // Verifique o nome que está sendo passado
-
-      // Buscar detalhes do gestor pelo nome
-      final gestorResponse = await Supabase.instance.client
-          .from('funcionarios')
-          .select('nome, cargo, nivel_hierarquico')
-          .eq('nome', nomeGestor) // Agora estamos usando o nome do gestor
-          .single()
-          .execute();
-
-      // Verificar a resposta do gestor
-      print('Resposta do gestor: ${gestorResponse.data}');
-
-      if (gestorResponse.data != null) {
-        final gestor = gestorResponse.data;
-
-        // Buscar subordinados diretos do gestor (baseado no cargo ou outro critério, se necessário)
-        final subordinadosResponse = await Supabase.instance.client
-            .from('funcionarios')
-            .select('nome, cargo')
-            .eq('supervisor',
-                nomeGestor) // Pode usar 'supervisor' como nome do gestor, se aplicável
-            .execute();
-
-        // Verificar a resposta dos subordinados
-        print('Resposta dos subordinados: ${subordinadosResponse.data}');
-
-        if (subordinadosResponse.data != null) {
-          final subordinados = subordinadosResponse.data as List<dynamic>;
-
-          // Mostrar o modal com detalhes do gestor e subordinados
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text('${gestor['nome']} - ${gestor['cargo']}'),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                        'Nível Hierárquico: ${gestor['nivel_hierarquico'] ?? 'Não informado'}'),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'Subordinados Diretos:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 5),
-                    for (final subordinado in subordinados)
-                      Text('${subordinado['nome']} - ${subordinado['cargo']}'),
-                  ],
+// Função para exibir a hierarquia com um design aprimorado e estilizado
+  Widget buildHierarchyWidget() {
+    return Container(
+      margin: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(24.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.purple.withOpacity(0.1),
+            blurRadius: 10.0,
+            spreadRadius: 4.0,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.account_tree_outlined,
+                  size: 28.0, color: Colors.purple),
+              const SizedBox(width: 8.0),
+              Text(
+                'Estrutura Hierárquica do Time',
+                style: TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple.shade700,
                 ),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('Fechar'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Implementar ação adicional, como enviar mensagem
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('Enviar Mensagem'),
-                  ),
-                ],
-              );
-            },
-          );
-        } else {
-          print('Erro: Nenhum subordinado encontrado');
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Nenhum subordinado encontrado.')),
-          );
-        }
-      } else {
-        print('Erro: Dados do gestor não encontrados');
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Dados do gestor não encontrados.')),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16.0),
+          _buildHierarchyItem(
+              'Maria Oliveira', 'Gestora de Projetos', Icons.business, true),
+          const SizedBox(height: 12.0),
+          const Divider(color: Colors.purpleAccent, thickness: 1.2),
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: Column(
+              children: [
+                _buildHierarchyItem('João Pereira', 'Desenvolvedor Frontend',
+                    Icons.code, false),
+                const SizedBox(height: 8.0),
+                _buildHierarchyItem('Ana Souza', 'Desenvolvedora Backend',
+                    Icons.computer, false),
+                const SizedBox(height: 8.0),
+                _buildHierarchyItem('Carlos Oliveira', 'UI/UX Designer',
+                    Icons.design_services, false),
+                const SizedBox(height: 8.0),
+                _buildHierarchyItem(
+                    'Fernanda Costa', 'QA Engineer', Icons.bug_report, false),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+// Função auxiliar para criar cada item da hierarquia com mais estilo
+  Widget _buildHierarchyItem(
+      String name, String role, IconData icon, bool isSupervisor) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(10.0),
+          decoration: BoxDecoration(
+            color: isSupervisor
+                ? Colors.purpleAccent.withOpacity(0.1)
+                : Colors.purple.withOpacity(0.05),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            size: 24.0,
+            color: isSupervisor ? Colors.purpleAccent : Colors.purple.shade400,
+          ),
+        ),
+        const SizedBox(width: 16),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              name,
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                color: isSupervisor ? Colors.purple.shade700 : Colors.black87,
+              ),
+            ),
+            Text(
+              role,
+              style: const TextStyle(
+                fontSize: 16.0,
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  void _onGestorGeralClick(String nomeGestor) {
+    // Dados fixos para teste
+    final gestor = {
+      'nome': 'Maria Oliveira',
+      'cargo': 'Gestora de Projetos',
+      'nivel_hierarquico': 'Nível 3'
+    };
+
+    final subordinados = [
+      {'nome': 'João Pereira', 'cargo': 'Desenvolvedor Frontend'},
+      {'nome': 'Ana Souza', 'cargo': 'Desenvolvedora Backend'},
+      {'nome': 'Carlos Oliveira', 'cargo': 'UI/UX Designer'},
+      {'nome': 'Fernanda Costa', 'cargo': 'QA Engineer'}
+    ];
+
+    // Mostrar o modal com detalhes do gestor e subordinados
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('${gestor['nome']} - ${gestor['cargo']}'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                  'Nível Hierárquico: ${gestor['nivel_hierarquico'] ?? 'Não informado'}'),
+              const SizedBox(height: 10),
+              const Text(
+                'Subordinados Diretos:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 5),
+              for (final subordinado in subordinados)
+                Text('${subordinado['nome']} - ${subordinado['cargo']}'),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Fechar'),
+            ),
+            TextButton(
+              onPressed: () {
+                // Implementar ação adicional, como enviar mensagem
+                Navigator.of(context).pop();
+              },
+              child: const Text('Enviar Mensagem'),
+            ),
+          ],
         );
-      }
-    } catch (e) {
-      print('Erro ao carregar detalhes do gestor: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao carregar dados do gestor.')),
-      );
-    }
+      },
+    );
+  }
+
+  Widget _buildInfoRow(BuildContext context, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            label,
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Readex Pro',
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
+          ),
+          Text(
+            value.isNotEmpty ? value : 'N/A',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Readex Pro',
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _fetchSupervisorDetails(String supervisorId) async {
@@ -357,7 +426,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget> {
                               ),
                               Expanded(
                                 child: Text(
-                                  userName ?? 'Carregando...',
+                                  userName ?? 'Maria Oliveira',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -480,7 +549,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget> {
                                         const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 5.0, 0.0, 0.0),
                                     child: Text(
-                                      'Cargo: ${userRole ?? 'Carregando...'}',
+                                      'Cargo: ${userRole ?? 'Gestor(a)'}',
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -501,8 +570,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget> {
                                             0.0, 20.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
-                                        _onGestorGeralClick(
-                                            'Gestor Exemplo'); // Nome do gestor, como "Gestor Exemplo"
+                                        _onGestorGeralClick('Nome do Gestor');
                                       },
                                       text: 'Gestor Geral',
                                       options: FFButtonOptions(

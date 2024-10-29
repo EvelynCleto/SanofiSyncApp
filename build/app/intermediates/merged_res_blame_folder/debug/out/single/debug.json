@@ -1,26 +1,50 @@
 [
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/drawable-mdpi_splash.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/drawable-mdpi/splash.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/drawable_launch_background.xml.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-29:/drawable/launch_background.xml"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/drawable-xhdpi_splash.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/drawable-xhdpi/splash.png"
     },
     {
-        "merged": "com.mycompany.sanofievelyn.app-merged_res-35:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.mycompany.sanofievelyn.app-main-29:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/drawable-hdpi_splash.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/drawable-hdpi/splash.png"
+    },
+    {
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/drawable-xxhdpi_splash.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/drawable-xxhdpi/splash.png"
+    },
+    {
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/drawable-xxxhdpi_splash.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/drawable-xxxhdpi/splash.png"
+    },
+    {
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/drawable-v21_background.png.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/drawable-v21/background.png"
+    },
+    {
+        "merged": "com.mycompany.sanofievelyn.app-merged_res-39:/drawable-v21_launch_background.xml.flat",
+        "source": "com.mycompany.sanofievelyn.app-main-33:/drawable-v21/launch_background.xml"
     }
 ]

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-33:/values-he/values-he.xml",
+            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-37:/values-he/values-he.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\5885155e2ee6de358b557772b5b87e06\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-he\\values-he.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\905e65a67942fd170f62b49f97b1dd44\\transformed\\jetified-zxing-android-embedded-4.3.0\\res\\values-he\\values-he.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

@@ -1,4 +1,4 @@
-# Sanofi - Evelyn
+# Sanofi Sync
 
 A new Flutter project.
 

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../ponto/ponto_widget.dart';
-import '../home/home_widget.dart';
-import '../pesquisa/pesquisa_widget.dart';
-import '../treinamentos/treinamentos_widget.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -24,6 +21,9 @@ class MyAccountWidget extends StatefulWidget {
 class _MyAccountWidgetState extends State<MyAccountWidget> {
   late MyAccountModel _model;
   String? userEmail;
+  String? userName;
+  String? userId;
+  String? userLocation;
   bool isGestor = false;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -35,14 +35,72 @@ class _MyAccountWidgetState extends State<MyAccountWidget> {
     _loadUserData();
   }
 
-  Future<void> _loadUserData() async {
-    final prefs = await SharedPreferences.getInstance();
+  Future<void> _loadUserLocation() async {
+    // Carregar a localização de uma API ou do SharedPreferences, por exemplo.
+    // Exemplo: usando SharedPreferences para carregar uma localização salva.
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      userEmail = prefs.getString('user_email') ?? 'Email não disponível';
-      isGestor = prefs.getBool('is_gestor') ?? false;
+      userLocation =
+          prefs.getString('user_location') ?? 'Localização desconhecida';
     });
   }
 
+  // Função para carregar os dados salvos no SharedPreferences
+  Future<void> _loadUserData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userId = prefs.getString('user_id');
+      userEmail = prefs.getString('user_email');
+      isGestor = prefs.getBool('is_gestor') ?? false;
+
+      // Se o email estiver salvo, busca o nome do usuário
+      if (userEmail != null) {
+        _fetchUserName(userEmail!);
+      }
+    });
+  }
+
+  // Função para buscar o nome do usuário a partir do email
+  Future<void> _fetchUserName(String email) async {
+    print('Buscando usuário com email: $email'); // Mensagem de depuração
+
+    try {
+      final response = await Supabase.instance.client
+          .from('funcionarios')
+          .select('email, nome') // Seleciona os campos 'email' e 'nome'
+          .eq('email', email) // Filtra pelo email
+          .single()
+          .execute(); // Método correto para executar a consulta
+
+      // Verifique se a resposta tem sucesso
+      if (response.status != null) {
+        print('Erro ao buscar usuário: ${response.data!.message}');
+        return;
+      }
+
+      final data = response.data;
+      if (data != null) {
+        setState(() {
+          userName = data['nome']; // Atualiza o nome do usuário
+        });
+      } else {
+        print('Nenhum usuário encontrado para o email: $email');
+      }
+    } catch (e) {
+      print('Erro ao buscar nome do usuário: $e');
+    }
+  }
+
+  // Função para garantir que o email e ID sejam salvos ao logar ou cadastrar
+  Future<void> _saveUserDataToPreferences(
+      String userId, String email, bool isGestorFlag) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user_id', userId);
+    await prefs.setString('user_email', email);
+    await prefs.setBool('is_gestor', isGestorFlag);
+  }
+
+  // Função para limpar os dados e fazer logout
   Future<void> _logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear(); // Limpa todas as preferências
@@ -53,30 +111,6 @@ class _MyAccountWidgetState extends State<MyAccountWidget> {
       MaterialPageRoute(builder: (context) => const WelcomeWidget()),
       (route) => false,
     );
-  }
-
-  Future<void> cadastrarFuncionarioPeloGestor(
-      String nomeFuncionario,
-      String emailFuncionario,
-      String nomeTreinamento,
-      String dataTreinamento) async {
-    try {
-      // Lógica de cadastro de funcionário
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-            content: Text('Erro ao cadastrar funcionário ou treinamento: $e')),
-      );
-    }
-  }
-
-  Future<void> inserirFuncionarioNoBanco(String nome, String email) async {
-    // Simulação de inserção no banco de dados
-  }
-
-  Future<void> _cadastrarTreinamento(String nomeTreinamento,
-      String dataTreinamento, String emailFuncionario) async {
-    // Simulação de inserção de treinamento no banco de dados
   }
 
   @override
@@ -190,7 +224,9 @@ class _MyAccountWidgetState extends State<MyAccountWidget> {
                                         const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      userEmail ?? 'Email não disponível',
+                                      userName ??
+                                          userEmail ??
+                                          'Usuário não disponível',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -221,9 +257,13 @@ class _MyAccountWidgetState extends State<MyAccountWidget> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => ReservasWidget(
-                                            usuarioId: userEmail ?? ''),
-                                      ),
+                                          builder: (context) => ReservasWidget(
+                                                usuarioId: userId ??
+                                                    '', // Substituído para usar o ID do usuário
+                                                usuarioNome: userName ?? '',
+                                                localizacao: userLocation ??
+                                                    '', // Se houver uma variável de localização
+                                              )),
                                     );
                                   },
                                   child: Text(
@@ -303,38 +343,40 @@ class _MyAccountWidgetState extends State<MyAccountWidget> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 20),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.logout,
-                                  color: Color(0xFF6F7F8E),
-                                  size: 24.0,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                    15.0,
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: _logout,
-                                    child: Text(
-                                      'Logout',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium
-                                          ?.copyWith(
-                                            fontFamily: 'Readex Pro',
-                                            fontSize: 15.0,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ],
+
+                          // O botão de logout agora aparece para todos os usuários
+                          const SizedBox(height: 20),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.logout,
+                                color: Color(0xFF6F7F8E),
+                                size: 24.0,
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0,
+                                  0.0,
+                                  0.0,
+                                  0.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: _logout,
+                                  child: Text(
+                                    'Logout',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium
+                                        ?.copyWith(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 15.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),

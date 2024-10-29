@@ -1,7 +1,7 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.mycompany.sanofievelyn"
-4    android:versionCode="1"
+4    android:versionCode="2"
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
@@ -17,275 +17,549 @@
 15    <uses-permission android:name="android.permission.CAMERA" />
 15-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:7:5-64
 15-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:7:22-62
-16    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-16-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:5-76
-16-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:22-74
-17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-17-->[:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-71
-17-->[:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-68
-18    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- suppress DeprecatedClassUsageInspection -->
-18-->[:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-72
-18-->[:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-69
-19    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-19-->[androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
-19-->[androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
-20
-21    <permission
-21-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
-22        android:name="com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-22-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
-23        android:protectionLevel="signature" />
-23-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
-24
-25    <uses-permission android:name="com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
-25-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
-25-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
-26    <uses-feature
-26-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
-27        android:name="android.hardware.camera"
-27-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:26:9-47
-28        android:required="false" />
-28-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:27:9-33
-29    <uses-feature
-29-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
-30        android:name="android.hardware.camera.front"
-30-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
-31        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
-31-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
-32    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
-33    <uses-feature
-33-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
-34        android:name="android.hardware.camera.autofocus"
-34-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:34:9-57
-35        android:required="false" />
-35-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:35:9-33
-36    <uses-feature
-36-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
-37        android:name="android.hardware.camera.flash"
-37-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
-38        android:required="false" />
-38-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:5:9-83
+16-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:5:26-80
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:5-81
+17-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:22-78
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+18-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:7:5-81
+18-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:7:22-78
+19    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+19-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:9:5-76
+19-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:9:22-74
+20    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+20-->[:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-71
+20-->[:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-68
+21    <uses-permission android:name="android.permission.WAKE_LOCK" />
+21-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
+21-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-65
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+22-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-79
+22-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-76
+23    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+23-->[:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-72
+23-->[:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-69
+24    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- suppress DeprecatedClassUsageInspection -->
+24-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:26:5-82
+24-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:26:22-79
+25    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+25-->[androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+25-->[androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+26
+27    <permission
+27-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+28        android:name="com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+28-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+29        android:protectionLevel="signature" />
+29-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+30
+31    <uses-permission android:name="com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+31-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+31-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+32    <uses-feature
+32-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
+33        android:name="android.hardware.camera"
+33-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:26:9-47
+34        android:required="false" />
+34-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:27:9-33
+35    <uses-feature
+35-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
+36        android:name="android.hardware.camera.front"
+36-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
+37        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+37-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
+38    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
 39    <uses-feature
-39-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
-40        android:name="android.hardware.screen.landscape"
-40-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+39-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
+40        android:name="android.hardware.camera.autofocus"
+40-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:34:9-57
 41        android:required="false" />
-41-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+41-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:35:9-33
 42    <uses-feature
-42-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
-43        android:name="android.hardware.wifi"
-43-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+42-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
+43        android:name="android.hardware.camera.flash"
+43-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
 44        android:required="false" />
-44-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
-45
-46    <application
-46-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:7:5-61:19
-47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-47-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
-48        android:debuggable="true"
-49        android:icon="@mipmap/ic_launcher"
-49-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:10:9-43
-50        android:label="Sanofi - Evelyn"
-50-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:8:9-40
-51        android:requestLegacyExternalStorage="true" >
-51-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:11:9-52
-52        <activity
-52-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:13:9-51:20
-53            android:name="com.mycompany.sanofievelyn.MainActivity"
-53-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:14:13-41
-54            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-54-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:18:13-163
-55            android:exported="true"
-55-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:15:13-36
-56            android:hardwareAccelerated="true"
-56-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:19:13-47
-57            android:launchMode="singleTop"
-57-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:16:13-43
-58            android:theme="@style/LaunchTheme"
-58-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:17:13-47
-59            android:windowSoftInputMode="adjustResize" >
-59-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:20:13-55
-60
-61            <!--
-62                 Specifies an Android theme to apply to this Activity as soon as
-63                 the Android process has started. This theme is visible to the user
-64                 while the Flutter UI initializes. After that, this theme continues
-65                 to determine the Window background behind the Flutter UI.
-66            -->
-67            <meta-data
-67-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:25:13-28:17
-68                android:name="io.flutter.embedding.android.NormalTheme"
-68-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:26:15-70
-69                android:resource="@style/NormalTheme" />
-69-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:27:15-52
-70            <!--
-71                 Displays an Android View that continues showing the launch screen
-72                 Drawable until Flutter paints its first frame, then this splash
-73                 screen fades out. A splash screen is useful to avoid any visual
-74                 gap between the end of Android's launch screen and the painting of
-75                 Flutter's first frame.
-76            -->
-77            <meta-data
-77-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:34:13-37:17
-78                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-78-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:35:15-79
-79                android:resource="@drawable/launch_background" />
-79-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:36:15-61
-80
-81            <intent-filter>
-81-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:38:13-41:29
-82                <action android:name="android.intent.action.MAIN" />
-82-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:39:17-68
-82-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:39:25-66
-83
-84                <category android:name="android.intent.category.LAUNCHER" />
-84-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:40:17-76
-84-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:40:27-74
-85            </intent-filter>
-86            <!-- Deep linking -->
-87            <meta-data
-87-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:13-90
-88                android:name="flutter_deeplinking_enabled"
-88-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:24-66
-89                android:value="true" />
-89-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:67-87
-90
-91            <intent-filter android:autoVerify="true" >
-91-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:44:13-49:29
-91-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:44:28-53
-92                <action android:name="android.intent.action.VIEW" />
-92-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:45:17-69
-92-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:45:25-66
-93
-94                <category android:name="android.intent.category.DEFAULT" />
-94-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:17-76
-94-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:27-73
-95                <category android:name="android.intent.category.BROWSABLE" />
-95-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:17-78
-95-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:27-75
+44-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+45    <uses-feature
+45-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
+46        android:name="android.hardware.screen.landscape"
+46-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+47        android:required="false" />
+47-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+48    <uses-feature
+48-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
+49        android:name="android.hardware.wifi"
+49-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+50        android:required="false" />
+50-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
+51
+52    <application
+52-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:10:5-64:19
+53        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+53-->[androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+54        android:debuggable="true"
+55        android:icon="@mipmap/ic_launcher"
+55-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:13:9-43
+56        android:label="Sanofi Sync"
+56-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:11:9-36
+57        android:requestLegacyExternalStorage="true" >
+57-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:14:9-52
+58        <activity
+58-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:16:9-54:20
+59            android:name="com.mycompany.sanofievelyn.MainActivity"
+59-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:17:13-41
+60            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+60-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:21:13-163
+61            android:exported="true"
+61-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:18:13-36
+62            android:hardwareAccelerated="true"
+62-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:22:13-47
+63            android:launchMode="singleTop"
+63-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:19:13-43
+64            android:theme="@style/LaunchTheme"
+64-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:20:13-47
+65            android:windowSoftInputMode="adjustResize" >
+65-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:23:13-55
+66
+67            <!--
+68                 Specifies an Android theme to apply to this Activity as soon as
+69                 the Android process has started. This theme is visible to the user
+70                 while the Flutter UI initializes. After that, this theme continues
+71                 to determine the Window background behind the Flutter UI.
+72            -->
+73            <meta-data
+73-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:28:13-31:17
+74                android:name="io.flutter.embedding.android.NormalTheme"
+74-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:29:15-70
+75                android:resource="@style/NormalTheme" />
+75-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:30:15-52
+76            <!--
+77                 Displays an Android View that continues showing the launch screen
+78                 Drawable until Flutter paints its first frame, then this splash
+79                 screen fades out. A splash screen is useful to avoid any visual
+80                 gap between the end of Android's launch screen and the painting of
+81                 Flutter's first frame.
+82            -->
+83            <meta-data
+83-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:37:13-40:17
+84                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+84-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:38:15-79
+85                android:resource="@drawable/launch_background" />
+85-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:39:15-61
+86
+87            <intent-filter>
+87-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:41:13-44:29
+88                <action android:name="android.intent.action.MAIN" />
+88-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:42:17-68
+88-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:42:25-66
+89
+90                <category android:name="android.intent.category.LAUNCHER" />
+90-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:17-76
+90-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:27-74
+91            </intent-filter>
+92            <!-- Deep linking -->
+93            <meta-data
+93-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:13-90
+94                android:name="flutter_deeplinking_enabled"
+94-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:24-66
+95                android:value="true" />
+95-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:67-87
 96
-97                <data
-97-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:17-87
-98                    android:host="sanofievelyn.com"
-98-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:53-84
-99                    android:scheme="sanofievelyn" />
-99-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:23-52
-100            </intent-filter>
-101        </activity>
+97            <intent-filter android:autoVerify="true" >
+97-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:13-52:29
+97-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:28-53
+98                <action android:name="android.intent.action.VIEW" />
+98-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:17-69
+98-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:25-66
+99
+100                <category android:name="android.intent.category.DEFAULT" />
+100-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:49:17-76
+100-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:49:27-73
+101                <category android:name="android.intent.category.BROWSABLE" />
+101-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:50:17-78
+101-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:50:27-75
 102
-103        <!--
-104             Don't delete the meta-data below.
-105             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-106        -->
-107        <meta-data
-107-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:55:9-57:33
-108            android:name="flutterEmbedding"
-108-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:56:13-44
-109            android:value="2" />
-109-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:57:13-30
-110
-111        <activity
-111-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
-112            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-112-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
-113            android:exported="false"
-113-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
-114            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-114-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
-115
-116        <uses-library
-116-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
-117            android:name="androidx.window.extensions"
-117-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
-118            android:required="false" />
-118-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
-119        <uses-library
-119-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
-120            android:name="androidx.window.sidecar"
-120-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
-121            android:required="false" />
-121-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
-122
-123        <provider
-123-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-124            android:name="androidx.startup.InitializationProvider"
-124-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
-125            android:authorities="com.mycompany.sanofievelyn.androidx-startup"
-125-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
-126            android:exported="false" >
-126-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
-127            <meta-data
-127-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-128                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-128-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
-129                android:value="androidx.startup" />
-129-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
-130            <meta-data
-130-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
-131                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-131-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
-132                android:value="androidx.startup" />
-132-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
-133            <meta-data
-133-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-134                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-134-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-135                android:value="androidx.startup" />
-135-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-136        </provider>
+103                <data
+103-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:51:17-87
+104                    android:host="sanofievelyn.com"
+104-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:51:53-84
+105                    android:scheme="sanofievelyn" />
+105-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:51:23-52
+106            </intent-filter>
+107        </activity>
+108
+109        <!--
+110             Don't delete the meta-data below.
+111             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+112        -->
+113        <meta-data
+113-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:58:9-60:33
+114            android:name="flutterEmbedding"
+114-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:59:13-44
+115            android:value="2" />
+115-->C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:60:13-30
+116
+117        <service
+117-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-19:72
+118            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+118-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-107
+119            android:exported="false"
+119-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
+120            android:permission="android.permission.BIND_JOB_SERVICE" />
+120-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-69
+121        <service
+121-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-26:19
+122            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+122-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-97
+123            android:exported="false" >
+123-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-37
+124            <intent-filter>
+124-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-25:29
+125                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+125-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-78
+125-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:25-75
+126            </intent-filter>
+127        </service>
+128
+129        <receiver
+129-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:28:9-35:20
+130            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+130-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-98
+131            android:exported="true"
+131-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-36
+132            android:permission="com.google.android.c2dm.permission.SEND" >
+132-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-73
+133            <intent-filter>
+133-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-34:29
+134                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+134-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:17-81
+134-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:25-78
+135            </intent-filter>
+136        </receiver>
 137
-138        <receiver
-138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-139            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-139-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-140            android:directBootAware="false"
-140-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-141            android:enabled="true"
-141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-142            android:exported="true"
-142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-143            android:permission="android.permission.DUMP" >
-143-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-144            <intent-filter>
-144-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-145                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-146            </intent-filter>
-147            <intent-filter>
-147-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-148                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-149            </intent-filter>
-150            <intent-filter>
-150-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-151                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-152            </intent-filter>
-153            <intent-filter>
-153-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-154                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-155            </intent-filter>
-156        </receiver>
-157
-158        <activity
-158-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
-159            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-159-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
-160            android:clearTaskOnLaunch="true"
-160-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
-161            android:screenOrientation="sensorLandscape"
-161-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
-162            android:stateNotNeeded="true"
-162-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
-163            android:theme="@style/zxing_CaptureTheme"
-163-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
-164            android:windowSoftInputMode="stateAlwaysHidden" />
-164-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
-165    </application>
-166
-167</manifest>
+138        <service
+138-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:37:9-41:19
+139            android:name="com.google.firebase.components.ComponentDiscoveryService"
+139-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:37:18-89
+140            android:directBootAware="true"
+140-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:32:13-43
+141            android:exported="false" >
+141-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:31:13-37
+142            <meta-data
+142-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:38:13-40:85
+143                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+143-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:39:17-128
+144                android:value="com.google.firebase.components.ComponentRegistrar" />
+144-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:40:17-82
+145            <meta-data
+145-->[:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+146                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+146-->[:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+147                android:value="com.google.firebase.components.ComponentRegistrar" />
+147-->[:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+148            <meta-data
+148-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:32:13-34:85
+149                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+149-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:33:17-96
+150                android:value="com.google.firebase.components.ComponentRegistrar" />
+150-->[com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:34:17-82
+151            <meta-data
+151-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:57:13-59:85
+152                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+152-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:58:17-122
+153                android:value="com.google.firebase.components.ComponentRegistrar" />
+153-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:59:17-82
+154            <meta-data
+154-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:60:13-62:85
+155                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+155-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:61:17-119
+156                android:value="com.google.firebase.components.ComponentRegistrar" />
+156-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:62:17-82
+157            <meta-data
+157-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:15:13-17:85
+158                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+158-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:16:17-130
+159                android:value="com.google.firebase.components.ComponentRegistrar" />
+159-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:17:17-82
+160            <meta-data
+160-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:18:13-20:85
+161                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+161-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:19:17-127
+162                android:value="com.google.firebase.components.ComponentRegistrar" />
+162-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:20:17-82
+163            <meta-data
+163-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:12:13-14:85
+164                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+164-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:13:17-116
+165                android:value="com.google.firebase.components.ComponentRegistrar" />
+165-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:14:17-82
+166            <meta-data
+166-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:35:13-37:85
+167                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+167-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:36:17-109
+168                android:value="com.google.firebase.components.ComponentRegistrar" />
+168-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:37:17-82
+169            <meta-data
+169-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:27:13-29:85
+170                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+170-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:28:17-115
+171                android:value="com.google.firebase.components.ComponentRegistrar" />
+171-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:29:17-82
+172        </service>
+173
+174        <provider
+174-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:43:9-47:38
+175            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+175-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-102
+176            android:authorities="com.mycompany.sanofievelyn.flutterfirebasemessaginginitprovider"
+176-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-88
+177            android:exported="false"
+177-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:46:13-37
+178            android:initOrder="99" />
+178-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:47:13-35
+179
+180        <service
+180-->[:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:56
+181            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+181-->[:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-77
+182            android:enabled="true"
+182-->[:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-35
+183            android:exported="false"
+183-->[:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+184            android:foregroundServiceType="location" />
+184-->[:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-53
+185
+186        <activity
+186-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+187            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+187-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+188            android:exported="false"
+188-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+189            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+189-->[:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+190
+191        <uses-library
+191-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+192            android:name="androidx.window.extensions"
+192-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+193            android:required="false" />
+193-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+194        <uses-library
+194-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+195            android:name="androidx.window.sidecar"
+195-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+196            android:required="false" />
+196-->[androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+197
+198        <receiver
+198-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:29:9-40:20
+199            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+199-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:30:13-78
+200            android:exported="true"
+200-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:31:13-36
+201            android:permission="com.google.android.c2dm.permission.SEND" >
+201-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:32:13-73
+202            <intent-filter>
+202-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-34:29
+203                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+203-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:17-81
+203-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:25-78
+204            </intent-filter>
+205
+206            <meta-data
+206-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:37:13-39:40
+207                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+207-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:38:17-92
+208                android:value="true" />
+208-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:39:17-37
+209        </receiver>
+210        <!--
+211             FirebaseMessagingService performs security checks at runtime,
+212             but set to not exported to explicitly avoid allowing another app to call it.
+213        -->
+214        <service
+214-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:46:9-53:19
+215            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+215-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:47:13-82
+216            android:directBootAware="true"
+216-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:48:13-43
+217            android:exported="false" >
+217-->[com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:49:13-37
+218            <intent-filter android:priority="-500" >
+218-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-25:29
+219                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+219-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-78
+219-->[:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:25-75
+220            </intent-filter>
+221        </service>
+222
+223        <activity
+223-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:23:9-27:75
+224            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+224-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:24:13-93
+225            android:excludeFromRecents="true"
+225-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:25:13-46
+226            android:exported="false"
+226-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:26:13-37
+227            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+227-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:27:13-72
+228        <!--
+229            Service handling Google Sign-In user revocation. For apps that do not integrate with
+230            Google Sign-In, this service will never be started.
+231        -->
+232        <service
+232-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:33:9-37:51
+233            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+233-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:34:13-89
+234            android:exported="true"
+234-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:35:13-36
+235            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+235-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:36:13-107
+236            android:visibleToInstantApps="true" />
+236-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:37:13-48
+237
+238        <provider
+238-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:23:9-28:39
+239            android:name="com.google.firebase.provider.FirebaseInitProvider"
+239-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:24:13-77
+240            android:authorities="com.mycompany.sanofievelyn.firebaseinitprovider"
+240-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:25:13-72
+241            android:directBootAware="true"
+241-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:26:13-43
+242            android:exported="false"
+242-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:27:13-37
+243            android:initOrder="100" />
+243-->[com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:28:13-36
+244
+245        <activity
+245-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
+246            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+246-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:19-85
+247            android:exported="false"
+247-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:22:19-43
+248            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+248-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:21:19-78
+249
+250        <meta-data
+250-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+251            android:name="com.google.android.gms.version"
+251-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+252            android:value="@integer/google_play_services_version" />
+252-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+253
+254        <provider
+254-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+255            android:name="androidx.startup.InitializationProvider"
+255-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+256            android:authorities="com.mycompany.sanofievelyn.androidx-startup"
+256-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+257            android:exported="false" >
+257-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+258            <meta-data
+258-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+259                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+259-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+260                android:value="androidx.startup" />
+260-->[androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+261            <meta-data
+261-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+262                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+262-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+263                android:value="androidx.startup" />
+263-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+264            <meta-data
+264-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+265                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+265-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+266                android:value="androidx.startup" />
+266-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+267        </provider>
+268
+269        <receiver
+269-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+270            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+270-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+271            android:directBootAware="false"
+271-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+272            android:enabled="true"
+272-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+273            android:exported="true"
+273-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+274            android:permission="android.permission.DUMP" >
+274-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+275            <intent-filter>
+275-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+276                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+276-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+276-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+277            </intent-filter>
+278            <intent-filter>
+278-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+279                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+279-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+279-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+280            </intent-filter>
+281            <intent-filter>
+281-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+282                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+282-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+282-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+283            </intent-filter>
+284            <intent-filter>
+284-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+285                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+285-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+285-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+286            </intent-filter>
+287        </receiver>
+288
+289        <service
+289-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:28:9-34:19
+290            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+290-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:29:13-103
+291            android:exported="false" >
+291-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:30:13-37
+292            <meta-data
+292-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:31:13-33:39
+293                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+293-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:32:17-94
+294                android:value="cct" />
+294-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:33:17-36
+295        </service>
+296        <service
+296-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:26:9-30:19
+297            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+297-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:27:13-117
+298            android:exported="false"
+298-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:28:13-37
+299            android:permission="android.permission.BIND_JOB_SERVICE" >
+299-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:29:13-69
+300        </service>
+301
+302        <receiver
+302-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:32:9-34:40
+303            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+303-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:33:13-132
+304            android:exported="false" />
+304-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:34:13-37
+305
+306        <activity
+306-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+307            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+307-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+308            android:clearTaskOnLaunch="true"
+308-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+309            android:screenOrientation="sensorLandscape"
+309-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+310            android:stateNotNeeded="true"
+310-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+311            android:theme="@style/zxing_CaptureTheme"
+311-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+312            android:windowSoftInputMode="stateAlwaysHidden" />
+312-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+313    </application>
+314
+315</manifest>

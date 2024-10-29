@@ -1,24 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/intl.dart';
+import 'package:table_calendar/table_calendar.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class ReservasWidget extends StatefulWidget {
   final String usuarioId;
+  final String usuarioNome;
+  final String localizacao;
 
-  const ReservasWidget({Key? key, required this.usuarioId}) : super(key: key);
+  const ReservasWidget({
+    Key? key,
+    required this.usuarioId,
+    required this.usuarioNome,
+    required this.localizacao,
+  }) : super(key: key);
 
   @override
   _ReservasWidgetState createState() => _ReservasWidgetState();
 }
 
-class _ReservasWidgetState extends State<ReservasWidget> {
-  List<Map<String, dynamic>> reservas = [];
-  final TextEditingController participantesController = TextEditingController();
-  final TextEditingController qrCodeController = TextEditingController();
-  final TextEditingController dataController = TextEditingController();
-  String tipoSala = 'Selecionar Sala';
-  String predioSelecionado = 'Selecionar Prédio';
-  String? qrCodeResult = '';
+class _ReservasWidgetState extends State<ReservasWidget>
+    with TickerProviderStateMixin {
+  CalendarFormat _calendarFormat = CalendarFormat.week;
+  DateTime _selectedDay = DateTime.now();
+  DateTime _focusedDay = DateTime.now();
+  Map<DateTime, List<Map<String, dynamic>>> _events = {};
+  Map<String, dynamic>? _originalReservation; // Reserva original
+  Map<String, dynamic>? _negotiationReservation; // Reserva em negociação
+
+  List<DateTime> _disabledDays = [];
+  List<DateTime> _markedDays = [];
+  bool _showOnlyReserved = false;
+  bool _showAllDates = false;
+  List<bool> _expandedCards = [];
+  TimeOfDay? _selectedTime;
+  int _currentStep = 0;
+  bool _isNegotiationPending =
+      false; // Controle para verificar se há uma negociação pendente
+  String? _negotiationMotivo;
+  String? _negotiationDescricao;
 
   @override
   void initState() {
@@ -27,451 +49,908 @@ class _ReservasWidgetState extends State<ReservasWidget> {
   }
 
   Future<void> _loadReservas() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? storedEvents = prefs.getString('stored_events');
+    final String? storedDisabledDays = prefs.getString('disabled_days');
+    final String? storedMarkedDays = prefs.getString('marked_days');
+
+    if (storedEvents != null) {
+      setState(() {
+        _events = (json.decode(storedEvents) as Map<String, dynamic>).map(
+          (key, value) => MapEntry(
+            DateTime.parse(key),
+            List<Map<String, dynamic>>.from(
+                value.map((item) => Map<String, dynamic>.from(item))),
+          ),
+        );
+      });
+    }
+
+    // Carregar os dias bloqueados e marcados ao inicializar
+    if (storedDisabledDays != null) {
+      setState(() {
+        _disabledDays = (json.decode(storedDisabledDays) as List<dynamic>)
+            .map((e) => DateTime.parse(e as String))
+            .toList();
+      });
+    }
+
+    if (storedMarkedDays != null) {
+      setState(() {
+        _markedDays = (json.decode(storedMarkedDays) as List<dynamic>)
+            .map((e) => DateTime.parse(e as String))
+            .toList();
+      });
+    }
+
+    // Certifique-se de que os eventos estejam atualizados corretamente
+    setState(() {
+      _updateCalendarState();
+    });
+  }
+
+  void _updateCalendarState() {
+    setState(() {
+      _markedDays = _events.keys.toList();
+
+      // Verificar se o dia selecionado ainda está marcado
+      if (!_markedDays.contains(_selectedDay)) {
+        _selectedDay = DateTime.now(); // Ou escolha o primeiro dia marcado
+      }
+    });
+  }
+
+  Future<void> _saveEventsLocally() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final eventsAsString = json.encode(_events.map(
+      (key, value) => MapEntry(
+        key.toIso8601String(),
+        value.map((e) => Map<String, dynamic>.from(e)).toList(),
+      ),
+    ));
+    await prefs.setString('stored_events', eventsAsString);
+
+    // Salvando dias bloqueados e marcados localmente
+    final disabledDaysAsString =
+        json.encode(_disabledDays.map((e) => e.toIso8601String()).toList());
+    await prefs.setString('disabled_days', disabledDaysAsString);
+
+    final markedDaysAsString =
+        json.encode(_markedDays.map((e) => e.toIso8601String()).toList());
+    await prefs.setString('marked_days', markedDaysAsString);
+  }
+
+  void _blockWeek(DateTime date) {
+    final startOfWeek = date.subtract(Duration(days: date.weekday - 1));
+    final endOfWeek = startOfWeek.add(const Duration(days: 6));
+    for (var i = 0; i < 7; i++) {
+      final day = startOfWeek.add(Duration(days: i));
+      if (!_disabledDays.contains(day)) {
+        _disabledDays.add(day);
+      }
+    }
+
+    // Salvar localmente os dias bloqueados
+    _saveEventsLocally();
+  }
+
+  void _addReserva() async {
+    // Verifica se já existe uma reserva na mesma semana
+    final DateTime startOfWeek =
+        _selectedDay.subtract(Duration(days: _selectedDay.weekday - 1));
+    final DateTime endOfWeek = startOfWeek.add(const Duration(days: 6));
+
     final response = await Supabase.instance.client
         .from('reservas')
         .select()
-        .eq('usuario_id', widget.usuarioId)
+        .gte('data_reserva', startOfWeek.toIso8601String())
+        .lte('data_reserva', endOfWeek.toIso8601String())
         .execute();
 
-    if (response.data != null) {
-      setState(() {
-        reservas = List<Map<String, dynamic>>.from(response.data);
-      });
+    if (response.status == 200 && response.data.isNotEmpty) {
+      // Caso já exista uma reserva na semana, não permitir outra reserva
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text(
+                'Já existe uma reserva nesta semana. Escolha outra semana.')),
+      );
+    } else {
+      _startNewReservation();
     }
   }
 
-  Future<void> _addReserva() async {
-    final String qrCodeSafe = qrCodeResult ?? '';
-    final String tipoSalaSafe =
-        tipoSala != 'Selecionar Sala' ? tipoSala : 'Não selecionado';
-    final String predioSelecionadoSafe =
-        predioSelecionado != 'Selecionar Prédio'
-            ? predioSelecionado
-            : 'Não selecionado';
+  // Método para negociação de data já reservada
+  void _startNegotiation(Map<String, dynamic> existingReservation) {
+    final TextEditingController nomeFuncionarioController =
+        TextEditingController();
+    final TextEditingController emailFuncionarioController =
+        TextEditingController();
+    final TextEditingController contatoFuncionarioController =
+        TextEditingController();
+    final TextEditingController tipoReservaController = TextEditingController();
+    final TextEditingController descricaoReservaController =
+        TextEditingController(); // Para a descrição
+    final TextEditingController predioController = TextEditingController();
+    final TextEditingController participantesController =
+        TextEditingController();
+    final TextEditingController motivoController =
+        TextEditingController(); // Para o motivo da negociação
 
-    if (participantesController.text.isNotEmpty &&
-        tipoSalaSafe != 'Não selecionado' &&
-        predioSelecionadoSafe != 'Não selecionado' &&
-        dataController.text.isNotEmpty) {
-      final Map<String, dynamic> novaReserva = {
-        'usuario_id': widget.usuarioId,
-        'tipo_sala': tipoSalaSafe,
-        'predio': predioSelecionadoSafe,
-        'participantes': int.parse(
-            participantesController.text), // Certificando-se de que é número
-        'qr_code': qrCodeSafe,
-        'data_reserva': dataController.text,
-        'status': 'pendente',
-      };
+    setState(() {
+      _originalReservation = existingReservation;
+      _currentStep = 0;
+    });
 
-      final response = await Supabase.instance.client
-          .from('reservas')
-          .insert(novaReserva)
-          .execute();
+    showDialog(
+      context: context,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Stepper(
+                currentStep: _currentStep,
+                onStepTapped: (int step) {
+                  if (step >= 0 && step < 4) {
+                    setState(() {
+                      _currentStep = step;
+                    });
+                  }
+                },
+                onStepContinue: () {
+                  if (_currentStep < 3) {
+                    setState(() {
+                      _currentStep += 1;
+                    });
+                  } else {
+                    // Aqui você coleta os valores corretamente antes de submeter a negociação
+                    final String motivo = motivoController.text.trim();
+                    final String descricao =
+                        descricaoReservaController.text.trim();
 
-      if (response.data == null) {
-        setState(() {
-          reservas.add(novaReserva);
-        });
-
-        // Limpar campos após a adição da reserva
-        tipoSala = 'Selecionar Sala';
-        predioSelecionado = 'Selecionar Prédio';
-        participantesController.clear();
-        qrCodeController.clear();
-        dataController.clear();
-        qrCodeResult = '';
-
-        Navigator.pop(context);
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-              content:
-                  Text('Erro ao salvar reserva: ${response.data!.message}')),
+                    if (motivo.isNotEmpty && descricao.isNotEmpty) {
+                      _submitNegotiation(
+                        nomeFuncionarioController.text.trim(),
+                        emailFuncionarioController.text.trim(),
+                        contatoFuncionarioController.text.trim(),
+                        tipoReservaController.text.trim(),
+                        descricao, // Passa a descrição corretamente
+                        predioController.text.trim(),
+                        int.parse(participantesController.text.trim()),
+                        motivo, // Passa
+                      );
+                      Navigator.of(context)
+                          .pop(); // Fecha o modal após a submissão
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                            content: Text(
+                                'Por favor, preencha o motivo e a descrição.')),
+                      );
+                    }
+                  }
+                },
+                onStepCancel: () {
+                  if (_currentStep > 0) {
+                    setState(() {
+                      _currentStep -= 1;
+                    });
+                  } else {
+                    Navigator.of(context).pop();
+                  }
+                },
+                steps: <Step>[
+                  Step(
+                    title: const Text('Informações do Funcionário'),
+                    content: Column(
+                      children: [
+                        TextField(
+                          controller: nomeFuncionarioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Nome do Funcionário',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: emailFuncionarioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Email do Funcionário',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: contatoFuncionarioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Contato do Funcionário',
+                          ),
+                        ),
+                      ],
+                    ),
+                    isActive: _currentStep >= 0,
+                  ),
+                  Step(
+                    title: const Text('Detalhes da Reserva'),
+                    content: Column(
+                      children: [
+                        TextField(
+                          controller: tipoReservaController,
+                          decoration: const InputDecoration(
+                            labelText: 'Tipo de Reserva',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: descricaoReservaController,
+                          decoration: const InputDecoration(
+                            labelText: 'Descrição',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: predioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Prédio',
+                          ),
+                        ),
+                      ],
+                    ),
+                    isActive: _currentStep >= 1,
+                  ),
+                  Step(
+                    title: const Text('Participantes e Horário'),
+                    content: Column(
+                      children: [
+                        TextField(
+                          controller: participantesController,
+                          decoration: const InputDecoration(
+                            labelText: 'Número de Participantes',
+                          ),
+                          keyboardType: TextInputType.number,
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: motivoController,
+                          decoration: const InputDecoration(
+                            labelText: 'Motivo da Negociação (Urgência)',
+                          ),
+                        ),
+                      ],
+                    ),
+                    isActive: _currentStep >= 2,
+                  ),
+                  Step(
+                    title: const Text('Confirmação'),
+                    content:
+                        const Text('Revise as informações antes de confirmar.'),
+                    isActive: _currentStep >= 3,
+                  ),
+                ],
+              ),
+            );
+          },
         );
-      }
+      },
+    );
+  }
+
+  void _submitNegotiation(
+      String nomeFuncionario,
+      String emailFuncionario,
+      String contatoFuncionario,
+      String tipoReserva,
+      String descricao,
+      String predio,
+      int participantes,
+      String motivo, // Motivo da negociação
+      {String?
+          reservaOriginalId} // ID da reserva original, opcional para quando for negociação
+      ) async {
+    final negociacao = {
+      'usuario_id': widget.usuarioId,
+      'nome_funcionario': nomeFuncionario,
+      'email_funcionario': emailFuncionario,
+      'contato_funcionario': contatoFuncionario,
+      'tipo_sala': tipoReserva,
+      'descricao': descricao,
+      'predio': predio,
+      'participantes': participantes,
+      'motivo': motivo,
+      'data_reserva': _selectedDay.toIso8601String(),
+      'status': reservaOriginalId != null
+          ? 'Em Negociação'
+          : 'Confirmado', // Define o status conforme o caso
+    };
+
+    // Submeter a negociação ou nova reserva
+    final response = await Supabase.instance.client
+        .from('reservas')
+        .insert(negociacao)
+        .execute();
+
+    if (response.status == 201) {
+      setState(() {
+        _isNegotiationPending = true;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Negociação enviada com sucesso!')),
+      );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text('Por favor, preencha todos os campos obrigatórios.')),
+        SnackBar(
+            content: Text('Erro ao enviar negociação: ${response.status}')),
       );
     }
   }
 
-  Future<void> _showDatePicker() async {
-    DateTime? selectedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2101),
-    );
+  void _approveNegotiation(
+      Map<String, dynamic> originalReservation,
+      Map<String, dynamic> negotiationReservation,
+      bool aprovado // true se aprovado, false se rejeitado
+      ) async {
+    if (aprovado) {
+      // Atualizar a reserva original como cancelada
+      await Supabase.instance.client
+          .from('reservas')
+          .update({
+            'status': 'Cancelada',
+            'descricao':
+                '~~${originalReservation['descricao']}~~' // Mostrar como cancelada
+          })
+          .eq('id', originalReservation['id'])
+          .execute();
 
-    if (selectedDate != null) {
+      // Atualizar a negociação como confirmada
+      await Supabase.instance.client
+          .from('reservas')
+          .update({'status': 'Confirmado'})
+          .eq('id', negotiationReservation['id'])
+          .execute();
+
+      // Atualizar a interface, removendo a reserva antiga e mostrando a nova
       setState(() {
-        dataController.text = selectedDate.toIso8601String();
+        _events[DateTime.parse(originalReservation['data_reserva'])]!
+            .remove(originalReservation);
+        _events[DateTime.parse(negotiationReservation['data_reserva'])]!
+            .add(negotiationReservation);
+        _isNegotiationPending = false;
+      });
+    } else {
+      // Rejeitar negociação
+      await Supabase.instance.client
+          .from('reservas')
+          .update({'status': 'Negociação Rejeitada'})
+          .eq('id', negotiationReservation['id'])
+          .execute();
+
+      setState(() {
+        _isNegotiationPending = false;
       });
     }
+
+    // Atualizar a visualização do calendário e reservas
+    _loadReservas();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+          content: Text(
+              aprovado ? 'Negociação aprovada!' : 'Negociação rejeitada!')),
+    );
+  }
+
+  // Exibir a negociação pendente e permitir que o responsável original aceite ou rejeite
+
+  // Método para iniciar uma nova reserva
+  void _startNewReservation() {
+    final TextEditingController nomeFuncionarioController =
+        TextEditingController();
+    final TextEditingController emailFuncionarioController =
+        TextEditingController();
+    final TextEditingController contatoFuncionarioController =
+        TextEditingController();
+    final TextEditingController tipoReservaController = TextEditingController();
+    final TextEditingController descricaoReservaController =
+        TextEditingController();
+    final TextEditingController predioController = TextEditingController();
+    final TextEditingController participantesController =
+        TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Stepper(
+                currentStep: _currentStep,
+                onStepTapped: (int step) {
+                  setState(() {
+                    _currentStep = step;
+                  });
+                },
+                onStepContinue: () {
+                  if (_currentStep < 3) {
+                    setState(() {
+                      _currentStep += 1;
+                    });
+                  } else {
+                    _submitForm(
+                      nomeFuncionarioController.text,
+                      emailFuncionarioController.text,
+                      contatoFuncionarioController.text,
+                      tipoReservaController.text,
+                      descricaoReservaController.text,
+                      predioController.text,
+                      int.parse(participantesController.text),
+                      _selectedTime,
+                    );
+                    Navigator.of(context).pop();
+                  }
+                },
+                onStepCancel: () {
+                  if (_currentStep > 0) {
+                    setState(() {
+                      _currentStep -= 1;
+                    });
+                  } else {
+                    Navigator.of(context).pop();
+                  }
+                },
+                steps: <Step>[
+                  Step(
+                    title: const Text('Informações do Funcionário'),
+                    content: Column(
+                      children: [
+                        TextField(
+                          controller: nomeFuncionarioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Nome do Funcionário',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: emailFuncionarioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Email do Funcionário',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: contatoFuncionarioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Contato do Funcionário',
+                          ),
+                        ),
+                      ],
+                    ),
+                    isActive: _currentStep >= 0,
+                  ),
+                  Step(
+                    title: const Text('Detalhes da Reserva'),
+                    content: Column(
+                      children: [
+                        TextField(
+                          controller: tipoReservaController,
+                          decoration: const InputDecoration(
+                            labelText: 'Tipo de Reserva',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: descricaoReservaController,
+                          decoration: const InputDecoration(
+                            labelText: 'Descrição',
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: predioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Prédio',
+                          ),
+                        ),
+                      ],
+                    ),
+                    isActive: _currentStep >= 1,
+                  ),
+                  Step(
+                    title: const Text('Participantes e Horário'),
+                    content: Column(
+                      children: [
+                        TextField(
+                          controller: participantesController,
+                          decoration: const InputDecoration(
+                            labelText: 'Número de Participantes',
+                          ),
+                          keyboardType: TextInputType.number,
+                        ),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () async {
+                            final TimeOfDay? pickedTime = await showTimePicker(
+                              context: context,
+                              initialTime: TimeOfDay.now(),
+                            );
+                            if (pickedTime != null) {
+                              setState(() {
+                                _selectedTime = pickedTime;
+                              });
+                            }
+                          },
+                          child: Text(
+                            _selectedTime == null
+                                ? 'Selecionar Horário'
+                                : 'Horário: ${_selectedTime!.format(context)}',
+                          ),
+                        ),
+                      ],
+                    ),
+                    isActive: _currentStep >= 2,
+                  ),
+                  Step(
+                    title: const Text('Confirmação'),
+                    content:
+                        const Text('Revise as informações antes de confirmar.'),
+                    isActive: _currentStep >= 3,
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  // Método para submissão do formulário de reserva
+  void _submitForm(
+    String nomeFuncionario,
+    String emailFuncionario,
+    String contatoFuncionario,
+    String tipoReserva,
+    String descricao,
+    String predio,
+    int participantes,
+    TimeOfDay? horario,
+  ) async {
+    if (horario == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Selecione um horário.')),
+      );
+      return;
+    }
+
+    final novaReserva = {
+      'usuario_id': widget.usuarioId,
+      'nome_funcionario': nomeFuncionario,
+      'email_funcionario': emailFuncionario,
+      'contato_funcionario': contatoFuncionario,
+      'tipo_sala': tipoReserva,
+      'descricao': descricao,
+      'predio': predio,
+      'participantes': participantes,
+      'data_reserva': _selectedDay.toIso8601String(),
+      'horario': horario.format(context),
+      'status': 'Confirmado',
+    };
+
+    final response = await Supabase.instance.client
+        .from('reservas')
+        .insert(novaReserva)
+        .execute();
+
+    if (response.status == 201) {
+      setState(() {
+        // Adiciona a nova reserva ao mapa de eventos
+        if (_events[_selectedDay] == null) {
+          _events[_selectedDay] = [];
+        }
+        _events[_selectedDay]!.add(novaReserva);
+
+        // Marca o dia selecionado, se ainda não estiver marcado
+        if (!_markedDays.contains(_selectedDay)) {
+          _markedDays.add(_selectedDay);
+        }
+
+        // Bloqueia a semana conforme a regra
+        _blockWeek(_selectedDay);
+
+        // Salva os eventos e marcações localmente
+        _saveEventsLocally();
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Reserva adicionada com sucesso!')),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text('Erro ao adicionar reserva: ${response.status}')),
+      );
+    }
+  }
+
+  // Exibir lista de todas as datas reservadas
+  Widget _buildAllReservationsList() {
+    final allReservations = _events.entries
+        .expand((entry) => entry.value)
+        .toList()
+      ..sort((a, b) => DateTime.parse(a['data_reserva'])
+          .compareTo(DateTime.parse(b['data_reserva'])));
+
+    return ListView.builder(
+      itemCount: allReservations.length,
+      itemBuilder: (context, index) {
+        final evento = allReservations[index];
+        return AnimatedContainer(
+          duration: Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.purple.withOpacity(0.15),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+          margin: const EdgeInsets.symmetric(vertical: 8.0),
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.purple,
+              child: Icon(Icons.event, color: Colors.white),
+            ),
+            title: Text(
+              evento['descricao'] ?? 'Reserva sem descrição',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.purple,
+              ),
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Data: ${DateFormat('dd/MM/yyyy').format(DateTime.parse(evento['data_reserva']))}',
+                  style: TextStyle(color: Colors.black54),
+                ),
+                Text(
+                  'Prédio: ${evento['predio']}',
+                  style: TextStyle(color: Colors.black54),
+                ),
+                Text(
+                  'Participantes: ${evento['participantes']}',
+                  style: TextStyle(color: Colors.black54),
+                ),
+                Text(
+                  'Status: ${evento['status'] ?? 'Pendente'}',
+                  style: TextStyle(
+                    color: evento['status'] == 'Confirmado'
+                        ? Colors.green
+                        : Colors.redAccent,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: _buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 20),
-            Expanded(
-              child:
-                  reservas.isEmpty ? _buildEmptyState() : _buildReservasList(),
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: const Text('Calendário de Reservas'),
+        backgroundColor: Colors.purple,
+        actions: [
+          IconButton(
+            icon: Icon(
+              _showAllDates ? Icons.calendar_today : Icons.filter_alt,
+              color: Colors.white,
             ),
-          ],
-        ),
+            onPressed: () {
+              setState(() {
+                _showAllDates = !_showAllDates;
+              });
+            },
+            tooltip: _showAllDates
+                ? 'Voltar ao Calendário'
+                : 'Mostrar Todas as Reservas',
+          ),
+        ],
       ),
+      body: _showAllDates
+          ? _buildAllReservationsList()
+          : Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 10.0),
+                  child: TableCalendar(
+                    focusedDay: _focusedDay,
+                    firstDay: DateTime(2022),
+                    lastDay: DateTime(2030),
+                    calendarFormat: _calendarFormat,
+                    selectedDayPredicate: (day) =>
+                        _markedDays.contains(day) ||
+                        isSameDay(_selectedDay, day),
+                    onDaySelected: (selectedDay, focusedDay) {
+                      setState(() {
+                        _selectedDay = selectedDay;
+                        _focusedDay = focusedDay;
+                      });
+                    },
+                    eventLoader: (day) {
+                      // Exibe os eventos apenas se o dia estiver marcado
+                      return _events[day] ?? [];
+                    },
+                    calendarStyle: CalendarStyle(
+                      selectedDecoration: BoxDecoration(
+                        color: Colors.purple,
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.purple.withOpacity(0.5),
+                            spreadRadius: 1,
+                            blurRadius: 8,
+                          ),
+                        ],
+                      ),
+                      markerDecoration: BoxDecoration(
+                        color: Colors.purple,
+                        shape: BoxShape.circle,
+                      ),
+                      disabledDecoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        shape: BoxShape.circle,
+                      ),
+                      disabledTextStyle: TextStyle(color: Colors.grey),
+                      markersMaxCount: 1,
+                      markersAlignment: Alignment.bottomCenter,
+                      outsideDaysVisible: false,
+                      weekendTextStyle: const TextStyle(color: Colors.black),
+                      defaultTextStyle: const TextStyle(color: Colors.black),
+                    ),
+                    enabledDayPredicate: (day) {
+                      // Permite a seleção do dia marcado, mesmo que ele esteja na lista de dias bloqueados
+                      if (_markedDays.contains(day)) {
+                        return true;
+                      }
+                      // Bloqueia os dias que estão na lista de dias desabilitados
+                      return !_disabledDays.contains(day);
+                    },
+                    headerStyle: HeaderStyle(
+                      formatButtonVisible: true,
+                      titleCentered: true,
+                      formatButtonDecoration: BoxDecoration(
+                        color: Colors.purpleAccent,
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      formatButtonTextStyle:
+                          const TextStyle(color: Colors.white),
+                      titleTextStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                      leftChevronIcon:
+                          Icon(Icons.chevron_left, color: Colors.black),
+                      rightChevronIcon:
+                          Icon(Icons.chevron_right, color: Colors.black),
+                    ),
+                    onFormatChanged: (format) {
+                      setState(() {
+                        _calendarFormat = format;
+                      });
+                    },
+                    onPageChanged: (focusedDay) {
+                      _focusedDay = focusedDay;
+                    },
+                  ),
+                ),
+                Expanded(child: _buildEventListView()),
+              ],
+            ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _showAddReservaModal();
-        },
-        backgroundColor: const Color(0xFF6A1B9A),
-        child: const Icon(Icons.add, color: Colors.white, size: 28),
+        onPressed: _addReserva,
+        backgroundColor: Colors.purpleAccent,
+        child: const Icon(Icons.add, color: Colors.white),
+        elevation: 8,
+        tooltip: 'Adicionar Reserva',
       ),
     );
   }
 
-  AppBar _buildAppBar() {
-    return AppBar(
-      title: const Text(
-        'Reservas',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 26,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      backgroundColor: const Color(0xFF4A148C),
-      centerTitle: true,
-      elevation: 4,
-    );
-  }
+  Widget _buildEventListView() {
+    final eventos = _events[_selectedDay] ?? [];
 
-  void _showAddReservaModal() {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
-      ),
-      builder: (context) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-            top: 24,
-            left: 24,
-            right: 24,
-          ),
-          child: SingleChildScrollView(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Text(
-                  'Adicionar Reserva',
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF4A148C),
+    return eventos.isEmpty
+        ? const Center(child: Text('Nenhuma reserva para este dia.'))
+        : ListView.builder(
+            itemCount: eventos.length,
+            itemBuilder: (context, index) {
+              final evento = eventos[index];
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _expandedCards[index] = !_expandedCards[index];
+                  });
+                },
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.purple.withOpacity(0.15),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 24),
-                _buildDropdownFormField(
-                  label: 'Tipo de Sala',
-                  value: tipoSala,
-                  items: [
-                    'Selecionar Sala',
-                    'Sala de Reunião',
-                    'Auditório',
-                    'Sala de Aula'
-                  ],
-                  onChanged: (newValue) {
-                    setState(() {
-                      tipoSala = newValue!;
-                    });
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildDropdownFormField(
-                  label: 'Prédio',
-                  value: predioSelecionado,
-                  items: [
-                    'Selecionar Prédio',
-                    'Prédio A',
-                    'Prédio B',
-                    'Prédio C'
-                  ],
-                  onChanged: (newValue) {
-                    setState(() {
-                      predioSelecionado = newValue!;
-                    });
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildTextField(
-                  controller: participantesController,
-                  label: 'Participantes (somente números)',
-                  keyboardType:
-                      TextInputType.number, // Limita a entrada a números
-                ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: dataController,
-                  readOnly: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Data',
-                    border: OutlineInputBorder(),
-                  ),
-                  onTap: _showDatePicker,
-                ),
-                const SizedBox(height: 16),
-                _buildQRCodeButton(),
-                const SizedBox(height: 24),
-                _buildSubmitButton(),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildDropdownFormField({
-    required String label,
-    required String value,
-    required List<String> items,
-    required ValueChanged<String?> onChanged,
-  }) {
-    return DropdownButtonFormField<String>(
-      value: value,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      items: items.map((String item) {
-        return DropdownMenuItem<String>(
-          value: item,
-          child: Text(item),
-        );
-      }).toList(),
-      onChanged: onChanged,
-    );
-  }
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String label,
-    TextInputType keyboardType = TextInputType.text,
-  }) {
-    return TextField(
-      controller: controller,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildQRCodeButton() {
-    return ElevatedButton.icon(
-      onPressed: _openQRCodeScanner,
-      icon: const Icon(Icons.qr_code_scanner, color: Colors.white),
-      label: const Text(
-        "Ler QR Code da Sala",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF4A148C),
-        padding: const EdgeInsets.all(16),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSubmitButton() {
-    return ElevatedButton(
-      onPressed: _addReserva,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF6A1B9A),
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      child: const Text(
-        'Adicionar Reserva',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildReservasList() {
-    return ListView.builder(
-      itemCount: reservas.length,
-      itemBuilder: (context, index) {
-        final reserva = reservas[index];
-        return Card(
-          margin: const EdgeInsets.symmetric(vertical: 8.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          elevation: 6,
-          child: ListTile(
-            leading: Icon(Icons.meeting_room, color: Colors.purpleAccent),
-            title: Text(reserva['tipo_sala'] ?? 'Não informado'),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                    'Prédio Selecionado: ${reserva['predio'] ?? 'Não informado'}'),
-                Text(
-                    'Participantes: ${reserva['participantes'] ?? 'Não informado'}'),
-                Text('QR Code: ${reserva['qr_code'] ?? 'Não informado'}'),
-                Text('Data: ${reserva['data_reserva'] ?? 'Não informada'}'),
-                Text('Status: ${reserva['status'] ?? 'Pendente'}'),
-              ],
-            ),
-            contentPadding: const EdgeInsets.all(16.0),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildEmptyState() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(Icons.event_note_outlined, color: Colors.grey[400], size: 120),
-        const SizedBox(height: 16),
-        const Text(
-          'Nenhuma reserva encontrada',
-          style: TextStyle(
-              fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w500),
-        ),
-        const SizedBox(height: 16),
-        const Text(
-          'Toque no botão "+" abaixo para adicionar uma nova reserva.',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 14, color: Colors.black45),
-        ),
-      ],
-    );
-  }
-
-  void _openQRCodeScanner() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text(
-            'Ler QR Code',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF6A1B9A),
-            ),
-          ),
-          content: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Text(
-                  'Abra o leitor de QR Code no navegador e cole o código abaixo:',
-                  style: TextStyle(fontSize: 16, color: Colors.black87),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: qrCodeController,
-                  decoration: const InputDecoration(
-                    hintText: 'Cole o QR Code aqui',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                    ),
-                  ),
-                  onChanged: (value) {
-                    setState(() {
-                      qrCodeResult = value;
-                    });
-                  },
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      qrCodeResult = qrCodeController.text;
-                    });
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Salvar QR Code',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF6A1B9A),
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 14, horizontal: 24),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 8,
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.purple,
+                          child: Icon(Icons.event, color: Colors.white),
+                        ),
+                        title: Text(
+                          evento['descricao'] ?? 'Reserva sem descrição',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.purple,
+                          ),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Data: ${DateFormat('dd/MM/yyyy').format(DateTime.parse(evento['data_reserva']))}',
+                              style: TextStyle(color: Colors.black54),
+                            ),
+                            Text(
+                              'Prédio: ${evento['predio'] ?? 'Não especificado'}',
+                              style: TextStyle(color: Colors.black54),
+                            ),
+                            Text(
+                              'Participantes: ${evento['participantes'] ?? 'Não especificado'}',
+                              style: TextStyle(color: Colors.black54),
+                            ),
+                            Text(
+                              'Status: ${evento['status'] ?? 'Pendente'}',
+                              style: TextStyle(
+                                color: evento['status'] == 'Confirmado'
+                                    ? Colors.green
+                                    : Colors.redAccent,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  void _removeReserva(int index) {
-    final reserva = reservas[index];
-    final String reservaId = reserva['id'] ?? '';
-
-    Supabase.instance.client
-        .from('reservas')
-        .delete()
-        .eq('id', reservaId)
-        .execute()
-        .then((response) {
-      if (response.data == null) {
-        setState(() {
-          reservas.removeAt(index);
-        });
-      }
-    });
+              );
+            },
+          );
   }
 }

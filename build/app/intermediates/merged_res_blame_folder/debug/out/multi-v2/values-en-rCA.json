@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-33:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.mycompany.sanofievelyn.app-mergeDebugResources-37:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\8a75d2355ad5d3dc15a625a8aa482e72\\transformed\\appcompat-1.4.2\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\a07643b6cc2ac7ab43e9fa39f185e164\\transformed\\appcompat-1.4.2\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\48ddf1e565b2f8b5a50c8f62aa007b94\\transformed\\core-1.13.1\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\066676eee63f12a011f5af6b8405714b\\transformed\\core-1.13.1\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\dc0f67847eae1e60eb44a619ddb081ea\\transformed\\biometric-1.1.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\6aa3f735bb21b04e4e29452bba36cf2b\\transformed\\biometric-1.1.0\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\74f2c7c0548d1c691541664d469ce6c8\\transformed\\browser-1.5.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\evely\\.gradle\\caches\\transforms-3\\a826b86c96d5f0bd9bbefd7ecc23074d\\transformed\\browser-1.5.0\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

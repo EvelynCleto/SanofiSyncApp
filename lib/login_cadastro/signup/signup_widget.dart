@@ -38,22 +38,35 @@ class _SignupWidgetState extends State<SignupWidget> {
     context.pushNamed('home');
   }
 
-  Future<void> _saveGestorData() async {
+  Future<void> _saveFuncionarioData() async {
+    final email = _model.textController1.text; // Capturando o email inserido
+    final idUsuario =
+        _model.textController2.text; // Capturando o ID do funcionário
+    final senha =
+        _model.textController3.text; // Capturando a senha do funcionário
+
+    if (email.isEmpty || idUsuario.isEmpty || senha.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Preencha todos os campos')),
+      );
+      return;
+    }
+
     final response =
         await Supabase.instance.client.from('Acesso Geral').insert({
-      'email': 'gestor@example.com',
-      'id_usuario': 'gestor',
-      'senha': '1',
-      'is_gestor': true, // Este usuário é um gestor
+      'email': email, // Email do funcionário
+      'id_usuario': idUsuario, // ID do funcionário
+      'senha': senha, // Senha do funcionário
+      'is_gestor': false, // Indica que é um funcionário comum, caso necessário
     }).execute();
 
     if (response.status == 201) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Gestor cadastrado com sucesso!')),
+        const SnackBar(content: Text('Funcionário cadastrado com sucesso!')),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao cadastrar gestor!')),
+        const SnackBar(content: Text('Erro ao cadastrar funcionário!')),
       );
     }
   }
@@ -76,7 +89,6 @@ class _SignupWidgetState extends State<SignupWidget> {
             height:
                 height, // Tornando o container responsivo ao tamanho da tela
             decoration: BoxDecoration(
-              // Removido o 'const' daqui
               color: Colors.white,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
@@ -86,7 +98,6 @@ class _SignupWidgetState extends State<SignupWidget> {
               ),
               shape: BoxShape.rectangle,
               border: Border.all(
-                // Border.all não pode ser const
                 color: Colors.white,
               ),
             ),
@@ -331,7 +342,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                                     0.0, height * 0.06, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    await _saveGestorData();
+                                    await _saveFuncionarioData();
                                     await _navigateToHome();
                                   },
                                   text: 'SIGN UP',

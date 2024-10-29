@@ -6,6 +6,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'login_model.dart';
 export 'login_model.dart';
+import '../../home/funcionario_especifico/build_employee_home_widget.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
@@ -58,10 +59,37 @@ class _LoginWidgetState extends State<LoginWidget> {
       return;
     }
 
-    // Verifica se o input é um email
-    bool isEmail = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$").hasMatch(input);
+    // Verifica se o email e senha são as credenciais fixas
+    if (input == '1' && senha == '1') {
+      // Redireciona para FuncionarioHomeWidget sem consultar o banco de dados
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => FuncionarioHomeWidget(
+            isFuncionario: true, // Define como funcionário
+            isGestor: false, // Não é gestor
+          ),
+        ),
+      );
 
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('Login bem-sucedido com credenciais fixas!')),
+      );
+
+      setState(() {
+        _isLoading = false;
+      });
+
+      return; // Termina a execução aqui, pois já foi feito o login
+    }
+
+    // Se não for o login fixo, faz a verificação normal no banco de dados
     try {
+      // Verifica se o input é um email
+      bool isEmail =
+          RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$").hasMatch(input);
+
       // Faz a consulta ao banco de dados usando email ou ID
       final response = await Supabase.instance.client
           .from('Acesso Geral')
@@ -85,6 +113,8 @@ class _LoginWidgetState extends State<LoginWidget> {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Login bem-sucedido!')),
           );
+
+          // Redireciona para a página home padrão
           context.pushNamed('home');
         } else {
           // Senha incorreta

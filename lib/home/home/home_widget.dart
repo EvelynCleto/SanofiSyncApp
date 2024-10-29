@@ -22,6 +22,9 @@ import 'package:mime/mime.dart';
 import 'package:http_parser/http_parser.dart';
 import 'dart:convert';
 import 'dart:typed_data';
+import '../reservas_livro/reservas_livro_widget.dart';
+import '../reservas_livro/gestao_livro_widget.dart';
+import 'dart:async'; // Para o uso de Timer
 import 'home_model.dart';
 export 'home_model.dart';
 
@@ -39,6 +42,9 @@ class _HomeWidgetState extends State<HomeWidget> {
   );
 
   late HomeModel _model;
+  Timer? _timer;
+  String currentTime = ''; // Relógio para exibir o tempo atual
+
   String entryTime = '';
   String exitTime = '';
   String workedHours = '00:00:00';
@@ -470,6 +476,20 @@ class _HomeWidgetState extends State<HomeWidget> {
     }
   }
 
+  void startClock() {
+    _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+      setState(() {
+        currentTime = DateFormat('HH:mm:ss').format(DateTime.now());
+      });
+    });
+  }
+
+  void stopClock() {
+    if (_timer != null) {
+      _timer!.cancel();
+    }
+  }
+
   // Função para registrar o horário de entrada
   void _registerEntry() async {
     String currentEntryTime = DateFormat('HH:mm:ss').format(DateTime.now());
@@ -482,6 +502,9 @@ class _HomeWidgetState extends State<HomeWidget> {
       isEntryRegistered = true;
       isExitRegistered = false;
     });
+
+    // Inicia o relógio
+    startClock();
 
     // Salva o horário de entrada no banco de dados
     final supabaseClient = Supabase.instance.client;
@@ -524,6 +547,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   }
 
   // Função para finalizar o ponto
+
   void _finalizePoint() async {
     final prefs = await SharedPreferences.getInstance();
     final email = prefs.getString('user_email') ?? '';
@@ -534,38 +558,69 @@ class _HomeWidgetState extends State<HomeWidget> {
     }
 
     try {
-      exitTime = DateFormat('HH:mm:ss').format(DateTime.now());
+      // Get the current exit time
+      String currentExitTime = DateFormat('HH:mm:ss').format(DateTime.now());
 
-      // Calcula as horas trabalhadas
+      // Update the exit time in the UI first
+      setState(() {
+        exitTime = currentExitTime;
+      });
+
+      // Calculate the worked hours based on entry and exit times
       DateTime entryDateTime = DateFormat('HH:mm:ss').parse(entryTime);
-      DateTime exitDateTime = DateFormat('HH:mm:ss').parse(exitTime);
+      DateTime exitDateTime = DateFormat('HH:mm:ss').parse(currentExitTime);
       Duration difference = exitDateTime.difference(entryDateTime);
-      workedHours = difference.toString().split('.').first; // Formato HH:mm:ss
+      String calculatedWorkedHours = difference.toString().split('.').first;
 
-      // Atualiza o banco de dados com o horário de saída e horas trabalhadas
+      // Update the worked hours in the UI
+      setState(() {
+        workedHours = calculatedWorkedHours;
+      });
+
+      // Log the entry and exit times for debugging
+      print('Horário de entrada: $entryTime');
+      print('Horário de saída: $exitTime');
+      print('Horas trabalhadas: $workedHours');
+
+      // Save the updated exit time and worked hours to the database
       final supabaseClient = Supabase.instance.client;
       final response = await supabaseClient
           .from('pontos')
-          .update({
-            'exit_time': exitTime,
-            'horas_trabalhadas': workedHours,
-          })
+          .select('id')
           .eq('user_email', email)
-          .eq('entry_time',
-              entryTime) // Certifica-se de atualizar o registro correto
+          .order('created_at', ascending: false)
+          .limit(1)
           .execute();
 
-      if (response.data == null) {
-        print(
-            'Horário de saída e horas trabalhadas salvos com sucesso no banco de dados!');
+      if (response.data != null && response.data.length > 0) {
+        final idPonto = response.data[0]['id'];
+
+        // Update the exit time and worked hours in the database
+        final updateResponse = await supabaseClient
+            .from('pontos')
+            .update({
+              'exit_time': currentExitTime,
+              'horas_trabalhadas': calculatedWorkedHours,
+            })
+            .eq('id', idPonto)
+            .execute();
+
+        if (updateResponse.status == 200 || updateResponse.status == 204) {
+          print(
+              'Horário de saída e horas trabalhadas salvos com sucesso no banco de dados!');
+        } else {
+          print(
+              'Erro ao salvar o horário de saída e horas trabalhadas: ${updateResponse.status}.');
+        }
       } else {
-        print(
-            'Erro ao salvar o horário de saída e horas trabalhadas: ${response.data!.message}');
+        print('Erro ao encontrar o registro de entrada para este usuário.');
       }
 
-      await prefs.setString('exit_time', exitTime);
-      await prefs.setString('worked_hours', workedHours);
+      // Persist the exit time and worked hours in SharedPreferences
+      await prefs.setString('exit_time', currentExitTime);
+      await prefs.setString('worked_hours', calculatedWorkedHours);
 
+      // Set the exit registered flag to true
       setState(() {
         isExitRegistered = true;
       });
@@ -727,523 +782,176 @@ class _HomeWidgetState extends State<HomeWidget> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Scaffold(
-            key: scaffoldKey,
-            backgroundColor: const Color(0xFFBB4CFF),
-            drawer: Drawer(
-              child: MyAccountWidget(),
-            ),
-            body: Padding(
-                padding:
-                    const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
-                child: Stack(children: [
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: const Color(0xFFBB4CFF),
+        drawer: Drawer(
+          child: MyAccountWidget(),
+        ),
+        body: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+          child: Stack(
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
                   Column(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 20.0, 0.0),
-                            child: SingleChildScrollView(
-                              primary: false,
-                              child: Column(
+                      Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 20.0, 0.0),
+                        child: SingleChildScrollView(
+                          primary: false,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      FlutterFlowIconButton(
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: screenWidth * 0.1,
-                                        icon: const Icon(
-                                          Icons.density_medium,
-                                          color: Colors.white,
-                                          size: 24.0,
-                                        ),
-                                        onPressed: () {
-                                          scaffoldKey.currentState
-                                              ?.openDrawer();
-                                        },
-                                      ),
-                                      Expanded(
-                                        child: Center(
-                                          child: Text(
-                                            'Home',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      const Icon(
-                                        Icons.location_history,
-                                        color: Color(0xFFE6EEF0),
-                                        size: 37.0,
-                                      ),
-                                    ],
-                                  ),
-                                  // Seção de Calendário
-                                  Padding(
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 18.0, 0.0, 0.0),
-                                    child: FlutterFlowCalendar(
+                                  FlutterFlowIconButton(
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: screenWidth * 0.1,
+                                    icon: const Icon(
+                                      Icons.density_medium,
                                       color: Colors.white,
-                                      iconColor: Colors.white,
-                                      weekFormat: true,
-                                      weekStartsMonday: false,
-                                      rowHeight: 64.0,
-                                      onChange:
-                                          (DateTimeRange? newSelectedDate) {
-                                        setState(() =>
-                                            _model.calendarSelectedDay =
-                                                newSelectedDate);
-                                      },
-                                      titleStyle: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      dayOfWeekStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Colors.white,
-                                                letterSpacing: 0.0,
-                                              ),
-                                      dateStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      selectedDateStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: const Color(0xFFBB4CFF),
-                                                letterSpacing: 0.0,
-                                              ),
-                                      inactiveDateStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: const Color(0xFFBB4CFF),
-                                                letterSpacing: 0.0,
-                                              ),
+                                      size: 24.0,
                                     ),
+                                    onPressed: () {
+                                      scaffoldKey.currentState?.openDrawer();
+                                    },
                                   ),
-                                  // Seção de Registro de Ponto e QR Code
-                                  Padding(
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: screenHeight * 0.15,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFE0BAF7),
-                                        borderRadius:
-                                            BorderRadius.circular(16.0),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional
-                                            .fromSTEB(0.0, 12.0, 0.0, 0.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          60.0,
-                                                          0.0,
-                                                          0.0,
-                                                          5.0), // Ajuste o valor de 20.0 para controlar o espaço à esquerda do ícone
-                                                  child: const Icon(
-                                                    Icons.qr_code_2,
-                                                    color: Color(0xFFBB4CFF),
-                                                    size: 50.0,
-                                                  ),
-                                                ),
-                                                Spacer(), // Espaço flexível entre o ícone e o texto
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          0.0,
-                                                          0.0,
-                                                          50.0,
-                                                          0.0), // Ajuste o valor de 20.0 para controlar o espaço à direita do texto
-                                                  child: entryTime.isEmpty
-                                                      ? Text(
-                                                          'Marcar ponto',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: const Color(
-                                                                    0xFFBB4CFF), // Cor ajustada para combinar com o tema roxo
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                        )
-                                                      : Text(
-                                                          entryTime,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                fontSize: 20.0,
-                                                                color: Colors
-                                                                    .black,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                        ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: isLoading
-                                                        ? null
-                                                        : _generateQRCode, // Desabilita o botão enquanto está carregando
-                                                    text: isLoading
-                                                        ? 'Carregando...'
-                                                        : 'GERAR QR CODE', // Mostra o estado de carregamento
-                                                    options: FFButtonOptions(
-                                                      width: screenWidth * 0.4,
-                                                      height:
-                                                          screenHeight * 0.05,
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(0.0,
-                                                              0.0, 0.0, 0.0),
-                                                      iconPadding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(0.0,
-                                                              0.0, 0.0, 0.0),
-                                                      color: isLoading
-                                                          ? const Color
-                                                              .fromARGB(
-                                                              255, 0, 0, 0)
-                                                          : const Color
-                                                              .fromARGB(
-                                                              255,
-                                                              0,
-                                                              0,
-                                                              0), // Cor roxa para carregamento e normal
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize:
-                                                                    14.0, // Font size ajustado para melhor legibilidade
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      elevation:
-                                                          6.0, // Elevação do botão
-                                                      borderSide:
-                                                          const BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              24.0),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      if (!isEntryRegistered) {
-                                                        _registerEntry();
-                                                      } else if (!isExitRegistered) {
-                                                        _finalizePoint();
-                                                      } else {
-                                                        setState(() {
-                                                          entryTime = '';
-                                                          exitTime = '';
-                                                          workedHours =
-                                                              '00:00:00';
-                                                          isEntryRegistered =
-                                                              false;
-                                                          isExitRegistered =
-                                                              false;
-                                                        });
-
-                                                        SharedPreferences
-                                                                .getInstance()
-                                                            .then((prefs) {
-                                                          prefs.remove(
-                                                              'entry_time');
-                                                          prefs.remove(
-                                                              'exit_time');
-                                                          prefs.remove(
-                                                              'worked_hours');
-                                                        });
-                                                      }
-                                                    },
-                                                    text: !isEntryRegistered
-                                                        ? 'REGISTRAR PONTO'
-                                                        : !isExitRegistered
-                                                            ? 'FINALIZAR PONTO'
-                                                            : 'REINICIAR',
-                                                    options: FFButtonOptions(
-                                                      width: screenWidth * 0.4,
-                                                      height:
-                                                          screenHeight * 0.05,
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(0.0,
-                                                              0.0, 0.0, 0.0),
-                                                      iconPadding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(0.0,
-                                                              0.0, 0.0, 0.0),
-                                                      color: Colors.black,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontSize: 12.0,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                      elevation: 3.0,
-                                                      borderSide:
-                                                          const BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              24.0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  // Condicional para mostrar seções específicas para gestores
-                                  if (isGestor) ...[
-                                    Padding(
-                                      padding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 30.0, 0.0, 0.0),
+                                  Expanded(
+                                    child: Center(
                                       child: Text(
-                                        'Gestão de Funcionários',
+                                        'Home',
+                                        textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Readex Pro',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w800,
                                             ),
                                       ),
                                     ),
-                                    // Aqui você pode adicionar outras funcionalidades específicas para gestores
-                                    // Por exemplo, exibir uma lista de funcionários, relatórios, etc.
-                                  ],
-                                  // Outras seções padrão
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Align(
-                                        alignment: const AlignmentDirectional(
-                                            -1.0, 0.0),
-                                        child: Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(0.0, 10.0, 20.0, 0.0),
-                                          child: Container(
-                                            width: screenWidth * 0.4,
-                                            height: screenHeight * 0.3,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                            ),
-                                            child: Padding(
+                                  ),
+                                  const Icon(
+                                    Icons.location_history,
+                                    color: Color(0xFFE6EEF0),
+                                    size: 37.0,
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 18.0, 0.0, 0.0),
+                                child: FlutterFlowCalendar(
+                                  color: Colors.white,
+                                  iconColor: Colors.white,
+                                  weekFormat: true,
+                                  weekStartsMonday: false,
+                                  rowHeight: 64.0,
+                                  onChange: (DateTimeRange? newSelectedDate) {
+                                    setState(() => _model.calendarSelectedDay =
+                                        newSelectedDate);
+                                  },
+                                  titleStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  dayOfWeekStyle: FlutterFlowTheme.of(context)
+                                      .labelLarge
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  dateStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  selectedDateStyle:
+                                      FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: const Color(0xFFBB4CFF),
+                                            letterSpacing: 0.0,
+                                          ),
+                                  inactiveDateStyle:
+                                      FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: const Color(0xFFBB4CFF),
+                                            letterSpacing: 0.0,
+                                          ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: screenHeight * 0.15,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFE0BAF7),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 12.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
                                               padding:
                                                   const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 20.0, 0.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  const Icon(
-                                                    Icons.watch_later_outlined,
-                                                    color: Color(0xFFF9A34B),
-                                                    size: 24.0,
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(24.0,
-                                                              24.0, 24.0, 0.0),
-                                                      child:
-                                                          CircularPercentIndicator(
-                                                        percent: 0.82,
-                                                        radius:
-                                                            screenWidth * 0.15,
-                                                        lineWidth: 4.0,
-                                                        animation: true,
-                                                        animateFromLastPercent:
-                                                            true,
-                                                        progressColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                        backgroundColor:
-                                                            const Color(
-                                                                0xFFF1F4F8),
-                                                        center: Text(
-                                                          workedHours, // Substitui "00:00" pelas horas trabalhadas
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .displaySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: const Color(
-                                                                    0xFF14181B),
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 1.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(0.0,
-                                                              50.0, 0.0, 0.0),
-                                                      child: Text(
-                                                        'Horas trabalhadas',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              color: const Color(
-                                                                  0xFF999FA0),
-                                                              fontSize: 10.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
+                                                      60.0, 0.0, 0.0, 5.0),
+                                              child: const Icon(
+                                                Icons.qr_code_2,
+                                                color: Color(0xFFBB4CFF),
+                                                size: 50.0,
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: const AlignmentDirectional(
-                                            -1.0, 0.0),
-                                        child: Padding(
-                                          padding: const EdgeInsetsDirectional
-                                              .fromSTEB(10.0, 10.0, 0.0, 0.0),
-                                          child: Container(
-                                            width: screenWidth * 0.4,
-                                            height: screenHeight * 0.3,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xFF90EAFF),
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                            ),
-                                            child: Padding(
+                                            Spacer(),
+                                            Padding(
                                               padding:
                                                   const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                      0.0, 20.0, 0.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  const Icon(
-                                                    Icons.lock,
-                                                    color: Colors.black,
-                                                    size: 24.0,
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 20.0,
-                                                            0.0, 0.0),
-                                                    child: Text(
-                                                      'xxxxxxxx',
+                                                      0.0, 0.0, 50.0, 0.0),
+                                              child: entryTime.isEmpty
+                                                  ? Text(
+                                                      'Marcar ponto',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            color: const Color(
+                                                                0xFFBB4CFF),
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    )
+                                                  : Text(
+                                                      entryTime,
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1251,234 +959,575 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                             fontFamily:
                                                                 'Readex Pro',
                                                             fontSize: 20.0,
+                                                            color: Colors.black,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: FFButtonWidget(
+                                                onPressed: isLoading
+                                                    ? null
+                                                    : _generateQRCode,
+                                                text: isLoading
+                                                    ? 'Carregando...'
+                                                    : 'GERAR QR CODE',
+                                                options: FFButtonOptions(
+                                                  width: screenWidth * 0.4,
+                                                  height: screenHeight * 0.05,
+                                                  color: isLoading
+                                                      ? const Color.fromARGB(
+                                                          255, 0, 0, 0)
+                                                      : const Color.fromARGB(
+                                                          255, 0, 0, 0),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            color: Colors.white,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                  elevation: 6.0,
+                                                  borderSide: const BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () {
+                                                  if (!isEntryRegistered) {
+                                                    _registerEntry();
+                                                  } else if (!isExitRegistered) {
+                                                    _finalizePoint();
+                                                  } else {
+                                                    setState(() {
+                                                      entryTime = '';
+                                                      exitTime = '';
+                                                      workedHours = '00:00:00';
+                                                      isEntryRegistered = false;
+                                                      isExitRegistered = false;
+                                                    });
+
+                                                    SharedPreferences
+                                                            .getInstance()
+                                                        .then((prefs) {
+                                                      prefs
+                                                          .remove('entry_time');
+                                                      prefs.remove('exit_time');
+                                                      prefs.remove(
+                                                          'worked_hours');
+                                                    });
+                                                  }
+                                                },
+                                                text: !isEntryRegistered
+                                                    ? 'REGISTRAR PONTO'
+                                                    : !isExitRegistered
+                                                        ? 'FINALIZAR PONTO'
+                                                        : 'REINICIAR',
+                                                options: FFButtonOptions(
+                                                  width: screenWidth * 0.4,
+                                                  height: screenHeight * 0.05,
+                                                  color: Colors.black,
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                            fontSize: 12.0,
+                                                            color: Colors.white,
+                                                          ),
+                                                  elevation: 3.0,
+                                                  borderSide: const BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              if (isGestor) ...[
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 30.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Gestão de Funcionários',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(-1.0, 0.0),
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 10.0, 20.0, 0.0),
+                                      child: Container(
+                                        width: screenWidth * 0.4,
+                                        height: screenHeight * 0.3,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 10.0, 0.0,
+                                              0.0), // Reduzi a margem superior para 10.0
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize
+                                                .min, // Ajuste para minimizar overflow
+                                            children: [
+                                              const Icon(
+                                                Icons.watch_later_outlined,
+                                                color: Color(0xFFF9A34B),
+                                                size: 24.0,
+                                              ),
+                                              Align(
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
+                                                          24.0,
+                                                          16.0,
+                                                          24.0,
+                                                          0.0), // Reduzi o espaçamento superior
+                                                  child:
+                                                      CircularPercentIndicator(
+                                                    percent: 0.82,
+                                                    radius: screenWidth * 0.15,
+                                                    lineWidth: 4.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
+                                                    backgroundColor:
+                                                        const Color(0xFFF1F4F8),
+                                                    center: Text(
+                                                      workedHours,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .displaySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            color: const Color(
+                                                                0xFF14181B),
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                           ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                            10.0, 0.0),
-                                                    child: FFButtonWidget(
-                                                      onPressed:
-                                                          _showSignatureModal,
-                                                      text: 'REGISTRAR TOKEN',
-                                                      options: FFButtonOptions(
-                                                        width:
-                                                            screenWidth * 0.4,
-                                                        height:
-                                                            screenHeight * 0.05,
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(0.0,
-                                                                0.0, 0.0, 0.0),
-                                                        iconPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(0.0,
-                                                                0.0, 0.0, 0.0),
-                                                        color: Colors.black,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                        elevation: 3.0,
-                                                        borderSide:
-                                                            const BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
+                                                ),
                                               ),
-                                            ),
+                                              Align(
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0,
+                                                        0.0), // Alinhamento centralizado
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
+                                                          0.0,
+                                                          10.0,
+                                                          0.0,
+                                                          0.0), // Reduzi a margem superior para 10.0
+                                                  child: Text(
+                                                    'Horas trabalhadas',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: const Color(
+                                                              0xFF999FA0),
+                                                          fontSize: 10.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
-                                    ],
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment:
+                                        const AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 10.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: screenWidth * 0.42,
+                                        height: screenHeight * 0.30,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFFFFFFF),
+                                          borderRadius:
+                                              BorderRadius.circular(18.0),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black
+                                                  .withOpacity(0.08),
+                                              blurRadius: 15.0,
+                                              offset: const Offset(0, 8),
+                                            ),
+                                          ],
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              const Icon(
+                                                Icons.lock,
+                                                color: Color(0xFF6A1B9A),
+                                                size: 38.0,
+                                              ),
+                                              const SizedBox(height: 12.0),
+                                              Text(
+                                                'Acesso Seguro',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 17.0,
+                                                  color:
+                                                      const Color(0xFF333333),
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 18.0),
+                                              FFButtonWidget(
+                                                onPressed: _showSignatureModal,
+                                                text: 'Registrar Token',
+                                                options: FFButtonOptions(
+                                                  width: screenWidth * 0.36,
+                                                  height: 46.0,
+                                                  color:
+                                                      const Color(0xFF6A1B9A),
+                                                  textStyle: const TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 14.0,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                  elevation: 2.0,
+                                                  borderSide: BorderSide.none,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                              ),
+                                              const SizedBox(height: 10.0),
+                                              FFButtonWidget(
+                                                onPressed: () async {
+                                                  final prefs =
+                                                      await SharedPreferences
+                                                          .getInstance();
+                                                  final email = prefs.getString(
+                                                          'user_email') ??
+                                                      '';
+                                                  final usuarioId =
+                                                      prefs.getString(
+                                                              'user_id') ??
+                                                          '';
+                                                  final usuarioNome =
+                                                      prefs.getString(
+                                                              'user_name') ??
+                                                          '';
+
+                                                  final response =
+                                                      await Supabase
+                                                          .instance.client
+                                                          .from('Acesso Geral')
+                                                          .select('is_gestor')
+                                                          .eq('email', email)
+                                                          .single()
+                                                          .execute();
+
+                                                  if (response.status == 200 &&
+                                                      response.data != null) {
+                                                    bool isGestor =
+                                                        response.data[
+                                                                'is_gestor'] ==
+                                                            true;
+
+                                                    if (isGestor) {
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              GestaoLivrosWidget(
+                                                                  usuarioId:
+                                                                      usuarioId),
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              ReservasLivroWidget(
+                                                            usuarioId:
+                                                                usuarioId,
+                                                            usuarioNome:
+                                                                usuarioNome,
+                                                            usuarioEmail: email,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                  } else {
+                                                    print(
+                                                        'Erro ao verificar o papel do usuário');
+                                                  }
+                                                },
+                                                text: 'Reserva de Livro',
+                                                options: FFButtonOptions(
+                                                  width: screenWidth * 0.36,
+                                                  height: 46.0,
+                                                  color:
+                                                      const Color(0xFF6A1B9A),
+                                                  textStyle: const TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 14.0,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                  elevation: 2.0,
+                                                  borderSide: BorderSide.none,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
-                  // Rodapé com ícones de navegação e logout
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: Container(
-                      width: size.width,
-                      height: size.height * 0.07,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              icon: const Icon(
-                                Icons.home,
-                                color: Color(0xFFE0BAF7),
-                                size:
-                                    22.0, // Tamanho do ícone ligeiramente reduzido
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
+                ],
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.0, 1.0),
+                child: Container(
+                  width: size.width,
+                  height: size.height * 0.07,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        20.0, 0.0, 20.0, 0.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.home,
+                            color: Color(0xFFE0BAF7),
+                            size: 22.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
                                         const HomeWidget(),
-                                    transitionsBuilder: (context, animation,
-                                        secondaryAnimation, child) {
-                                      const begin = Offset(0.0,
-                                          1.0); // Inicia a partir da parte inferior da tela
-                                      const end = Offset.zero;
-                                      const curve = Curves.easeInOut;
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  const begin = Offset(0.0, 1.0);
+                                  const end = Offset.zero;
+                                  const curve = Curves.easeInOut;
 
-                                      var tween = Tween(begin: begin, end: end)
-                                          .chain(CurveTween(curve: curve));
-                                      var offsetAnimation =
-                                          animation.drive(tween);
+                                  var tween = Tween(begin: begin, end: end)
+                                      .chain(CurveTween(curve: curve));
+                                  var offsetAnimation = animation.drive(tween);
 
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                            IconButton(
-                              icon: const Icon(
-                                Icons.access_time,
-                                color: Color(0xFFCCD3D4),
-                                size: 25.0,
+                                  return SlideTransition(
+                                    position: offsetAnimation,
+                                    child: child,
+                                  );
+                                },
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        const PontoWidget(),
-                                    transitionsBuilder: (context, animation,
-                                        secondaryAnimation, child) {
-                                      const begin = Offset(0.0, 1.0);
-                                      const end = Offset.zero;
-                                      const curve = Curves.easeInOut;
-
-                                      var tween = Tween(begin: begin, end: end)
-                                          .chain(CurveTween(curve: curve));
-                                      var offsetAnimation =
-                                          animation.drive(tween);
-
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                            IconButton(
-                              icon: const Icon(
-                                Icons.search,
-                                color: Color(0xFFCCD3D4),
-                                size: 25.0,
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        const PesquisaWidget(),
-                                    transitionsBuilder: (context, animation,
-                                        secondaryAnimation, child) {
-                                      const begin = Offset(0.0, 1.0);
-                                      const end = Offset.zero;
-                                      const curve = Curves.easeInOut;
-
-                                      var tween = Tween(begin: begin, end: end)
-                                          .chain(CurveTween(curve: curve));
-                                      var offsetAnimation =
-                                          animation.drive(tween);
-
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                            IconButton(
-                              icon: const Icon(
-                                Icons.person_outline_sharp,
-                                color: Color(0xFFCCD3D4),
-                                size: 25.0,
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        const TreinamentosWidget(),
-                                    transitionsBuilder: (context, animation,
-                                        secondaryAnimation, child) {
-                                      const begin = Offset(0.0, 1.0);
-                                      const end = Offset.zero;
-                                      const curve = Curves.easeInOut;
-
-                                      var tween = Tween(begin: begin, end: end)
-                                          .chain(CurveTween(curve: curve));
-                                      var offsetAnimation =
-                                          animation.drive(tween);
-
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
+                            );
+                          },
                         ),
-                      ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.access_time,
+                            color: Color(0xFFCCD3D4),
+                            size: 25.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        const PontoWidget(),
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  const begin = Offset(0.0, 1.0);
+                                  const end = Offset.zero;
+                                  const curve = Curves.easeInOut;
+
+                                  var tween = Tween(begin: begin, end: end)
+                                      .chain(CurveTween(curve: curve));
+                                  var offsetAnimation = animation.drive(tween);
+
+                                  return SlideTransition(
+                                    position: offsetAnimation,
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.search,
+                            color: Color(0xFFCCD3D4),
+                            size: 25.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        const PesquisaWidget(),
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  const begin = Offset(0.0, 1.0);
+                                  const end = Offset.zero;
+                                  const curve = Curves.easeInOut;
+
+                                  var tween = Tween(begin: begin, end: end)
+                                      .chain(CurveTween(curve: curve));
+                                  var offsetAnimation = animation.drive(tween);
+
+                                  return SlideTransition(
+                                    position: offsetAnimation,
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.person_outline_sharp,
+                            color: Color(0xFFCCD3D4),
+                            size: 25.0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        const TreinamentosWidget(),
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  const begin = Offset(0.0, 1.0);
+                                  const end = Offset.zero;
+                                  const curve = Curves.easeInOut;
+
+                                  var tween = Tween(begin: begin, end: end)
+                                      .chain(CurveTween(curve: curve));
+                                  var offsetAnimation = animation.drive(tween);
+
+                                  return SlideTransition(
+                                    position: offsetAnimation,
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
-                ]))));
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

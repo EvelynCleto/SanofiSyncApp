@@ -1,14 +1,21 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-62:12
-INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-62:12
-INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-62:12
-INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-62:12
-MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-62:12
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-65:12
+INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-65:12
+INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-65:12
+INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-65:12
+MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-65:12
 MERGED from [:app_links] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\app_links\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [:device_calendar] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\device_calendar\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-50:12
+MERGED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:flutter_native_splash] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:fluttertoast] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:google_sign_in_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:path_provider_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:permission_handler_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:qr_code_scanner] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\qr_code_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
@@ -17,61 +24,88 @@ MERGED from [:sign_in_with_apple] C:\Users\evely\Downloads\sano-20240822T094437Z
 MERGED from [:sqflite] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
 MERGED from [:webview_flutter_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
-MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\8a75d2355ad5d3dc15a625a8aa482e72\transformed\appcompat-1.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.browser:browser:1.5.0] C:\Users\evely\.gradle\caches\transforms-3\74f2c7c0548d1c691541664d469ce6c8\transformed\browser-1.5.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.webkit:webkit:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\542be7ae61ebe04463abd6f44be7f34e\transformed\webkit-1.7.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:17:1-31:12
-MERGED from [androidx.window:window-java:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\66bff9864bf07d24e0d92e3230434921\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:17:1-21:12
-MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\de857ad9e3d13eb919e7eba5c28b51d8\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\15bf885b5ce4a6b304ba707d91f6e9b7\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\fa8bcdefd8ebe1d00d9d20ce0332e046\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\evely\.gradle\caches\transforms-3\d0f0d9a9a1204edcb169670c448d3468\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.activity:activity:1.8.1] C:\Users\evely\.gradle\caches\transforms-3\07facec72c0378a59edb4ed62e2f6f8c\transformed\jetified-activity-1.8.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\cf3b0a7a36470266d20168602e33c78c\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\4480faeef111a7cf33225bc251a94899\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\055d0f2124424b113432a4f356e40bed\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\a2bab00d024ed5d6747e286f09fd742f\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\0a07d7e656eb204a95b235884f2e5600\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\08af219fd807a08b81d57d787716e943\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\539c0cbee3591084ee2475b54cdb4176\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\fa877aa0d05590af9347a42ff16aa86f\transformed\jetified-core-ktx-1.13.1\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\af7e1e18199cc5ae3a776b2a22de6389\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\ffe37a850cdee6e538b414d22d98e5be\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\afd66b5919addffac4606cf607b8b033\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\cd4e28c9b38776c87ec081a8e152db11\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\evely\.gradle\caches\transforms-3\af1b7a83fe36fc87b011cb9a6e367e3c\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\ac7c23623c3d77d45d5f546889fd2ded\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
-MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\f85e554a31a9808477c2767553683856\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\8f7a65b4b176bec321baa460eb796802\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\b47d82fa6291d511b9fa7c9df5c5ab41\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\b88f0ea005844bb9d31ee9beba972fce\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\evely\.gradle\caches\transforms-3\84163e3f1bb8c6db4d22cd7bf50bdd30\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\94c65880d3b06932ae0ecaf585abb219\transformed\jetified-core-1.0.0\AndroidManifest.xml:2:1-7:12
-MERGED from [org.microg:safe-parcel:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\5d7617698f0c416524a4e85af99d2b3a\transformed\jetified-safe-parcel-1.7.0\AndroidManifest.xml:6:1-14:12
-MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:17:1-56:12
-MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\evely\.gradle\caches\transforms-3\3c62a931ce4fd5ac320716ac2f3b3311\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:1:1-9:12
-INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:1:1-9:12
-INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:1:1-9:12
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\evely\.gradle\caches\transforms-3\02bb0a5660f04617d7049dd2f91c713b\transformed\jetified-play-services-location-21.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:17:1-38:12
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
+MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\a07643b6cc2ac7ab43e9fa39f185e164\transformed\appcompat-1.4.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.5.0] C:\Users\evely\.gradle\caches\transforms-3\a826b86c96d5f0bd9bbefd7ecc23074d\transformed\browser-1.5.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.webkit:webkit:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\8f6f644be63e4ef22905f076574b69f8\transformed\webkit-1.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.window:window-java:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\3e1eaf9d83ca01c78ebe746a118d1d0e\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:17:1-21:12
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:17:1-66:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\evely\.gradle\caches\transforms-3\961c8518a4e6882946c8ff91316aff2a\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\3468c3518b0e31672806723ca1f5c790\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\f12b48337b14cb9e57947b091a6c7a21\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\evely\.gradle\caches\transforms-3\43162177acc73787f2b262190f36c742\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\evely\.gradle\caches\transforms-3\62c5bc7b24be484da1510f0091f075d9\transformed\jetified-play-services-auth-base-18.0.10\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\evely\.gradle\caches\transforms-3\4649634a21152f2dc725540fe0c3f24a\transformed\jetified-play-services-fido-20.0.1\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] C:\Users\evely\.gradle\caches\transforms-3\d46cabdaaedb57e3cb4ea3162344bd3a\transformed\jetified-firebase-installations-interop-17.1.1\AndroidManifest.xml:15:1-19:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\evely\.gradle\caches\transforms-3\55d9d5949c959b4597f3ffa80259652f\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\evely\.gradle\caches\transforms-3\6968ad9b9029f7e00a046f424deae4ea\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\evely\.gradle\caches\transforms-3\2e12281122eb3aeda014c0a304a6ca67\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\35d97710e5ea87456bf9a61ca8cd7392\transformed\loader-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\f2dfeec3684636f1d37f4f06abf28c0d\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\6b0bd96cdbd1046bc5d8b56efa789f66\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\f061f0917dc75f65d51dbdce09dcbee3\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.activity:activity:1.8.1] C:\Users\evely\.gradle\caches\transforms-3\c5ae01f7b1b1ca580816ccf92cbec6f7\transformed\jetified-activity-1.8.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2149da8f52cf6291af158bb693ab1540\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\97e3a5e7ce8c9b13ea035127c6538bb4\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\c8274f3ecb14997c347e653c37f062b5\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\875861a81dbdf5361ced189f8d15d536\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\fe5775e7ea3c15cca13528ead793b6e7\transformed\jetified-core-ktx-1.13.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\3b638ad1eba0731ab59c4374464cc798\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\37448357f56936088b7be93feedf111c\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\bdad6690976a1912152916ee10960d23\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\91d54e36b2f24b16f1e9b52ba2fda20e\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\evely\.gradle\caches\transforms-3\5c061f1ccc4da5a02b76a215400645f7\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\evely\.gradle\caches\transforms-3\cb4b4ea99a733944ef7f178551f9f53b\transformed\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\38f3bf56d61830690188045b21cccab8\transformed\localbroadcastmanager-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\6558bdd4d7dd2cdd22515db635d788d6\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\b76863aababba60024c0d574ebaaf804\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2b973c414c4f88a42a3f88b6938c84bc\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\c29d05b1287a30a629434787f2fdb6b9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\fe1f074f92640e79d73177ad4feee69d\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\evely\.gradle\caches\transforms-3\ea40705270374c9c5ca903aa9a137076\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:17.1.5] C:\Users\evely\.gradle\caches\transforms-3\e49836b10abed7e951537944a445bd84\transformed\jetified-firebase-components-17.1.5\AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:15:1-33:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:15:1-37:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] C:\Users\evely\.gradle\caches\transforms-3\9ebf42e8f6d5e3ab7c55261a8f2831ab\transformed\jetified-transport-api-3.1.0\AndroidManifest.xml:15:1-20:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\evely\.gradle\caches\transforms-3\097a45f8f0e588a3d634f13e9eacbf56\transformed\jetified-firebase-encoders-json-18.0.0\AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2d8a1cc82abaa24f2ef24f3241e226eb\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\7542a32512ccf9d40a4932ab066760b9\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\c80e1c64513162215f11a262a3b623a5\transformed\jetified-core-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [org.microg:safe-parcel:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\acb1aa28636c4ced75ce6bad6ace1dd1\transformed\jetified-safe-parcel-1.7.0\AndroidManifest.xml:6:1-14:12
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:17:1-56:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\evely\.gradle\caches\transforms-3\0b241bb76ff7732bbd9bc74b4d6f7308\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
+INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:1:1-12:12
 	package
 		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:2:5-41
 		INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-62:12
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-65:12
 		INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:3:5-51
 		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-62:12
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:1-65:12
 		INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -79,114 +113,186 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:4:5-66
 MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:4:5-66
 MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:4:5-66
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:google_sign_in_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:google_sign_in_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:25:5-67
 	android:name
 		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:5:9-83
+MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:5:9-83
+MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:5:9-83
+	android:name
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:5:26-80
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:5-81
+MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:5-81
+MERGED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:22-78
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:7:22-78
 uses-permission#android.permission.POST_NOTIFICATIONS
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:5-76
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:9:5-76
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-77
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-77
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:23:5-77
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:23:5-77
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:6:22-74
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:9:22-74
 application
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:7:5-61:19
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:10:5-64:19
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-48:19
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-48:19
+MERGED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
 MERGED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
-MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:22:5-29:19
-MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:22:5-29:19
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\ac7c23623c3d77d45d5f546889fd2ded\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\ac7c23623c3d77d45d5f546889fd2ded\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\b47d82fa6291d511b9fa7c9df5c5ab41\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\b47d82fa6291d511b9fa7c9df5c5ab41\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:46:5-54:19
-MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:46:5-54:19
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\evely\.gradle\caches\transforms-3\02bb0a5660f04617d7049dd2f91c713b\transformed\jetified-play-services-location-21.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\evely\.gradle\caches\transforms-3\02bb0a5660f04617d7049dd2f91c713b\transformed\jetified-play-services-location-21.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:28:5-36:19
+MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:22:5-29:19
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:28:5-64:19
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:28:5-64:19
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\evely\.gradle\caches\transforms-3\961c8518a4e6882946c8ff91316aff2a\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\evely\.gradle\caches\transforms-3\961c8518a4e6882946c8ff91316aff2a\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:11:5-22:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:22:5-39:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\f12b48337b14cb9e57947b091a6c7a21\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\f12b48337b14cb9e57947b091a6c7a21\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\evely\.gradle\caches\transforms-3\4649634a21152f2dc725540fe0c3f24a\transformed\jetified-play-services-fido-20.0.1\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\evely\.gradle\caches\transforms-3\4649634a21152f2dc725540fe0c3f24a\transformed\jetified-play-services-fido-20.0.1\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\evely\.gradle\caches\transforms-3\55d9d5949c959b4597f3ffa80259652f\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\evely\.gradle\caches\transforms-3\55d9d5949c959b4597f3ffa80259652f\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\evely\.gradle\caches\transforms-3\6968ad9b9029f7e00a046f424deae4ea\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\evely\.gradle\caches\transforms-3\6968ad9b9029f7e00a046f424deae4ea\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\6558bdd4d7dd2cdd22515db635d788d6\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\6558bdd4d7dd2cdd22515db635d788d6\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\c29d05b1287a30a629434787f2fdb6b9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\c29d05b1287a30a629434787f2fdb6b9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:23:5-31:19
+MERGED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:23:5-31:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:27:5-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:25:5-39:19
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:46:5-54:19
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:46:5-54:19
 	android:requestLegacyExternalStorage
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:11:9-52
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:14:9-52
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:label
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:8:9-40
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:11:9-36
 	android:icon
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:10:9-43
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:13:9-43
 	tools:replace
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:9:9-38
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:12:9-38
 activity#com.mycompany.sanofievelyn.MainActivity
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:13:9-51:20
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:16:9-54:20
 	android:launchMode
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:16:13-43
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:19:13-43
 	android:hardwareAccelerated
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:19:13-47
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:22:13-47
 	android:windowSoftInputMode
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:20:13-55
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:23:13-55
 	android:exported
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:15:13-36
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:18:13-36
 	android:configChanges
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:18:13-163
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:21:13-163
 	android:theme
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:17:13-47
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:20:13-47
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:14:13-41
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:17:13-41
 meta-data#io.flutter.embedding.android.NormalTheme
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:25:13-28:17
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:28:13-31:17
 	android:resource
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:27:15-52
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:30:15-52
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:26:15-70
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:29:15-70
 meta-data#io.flutter.embedding.android.SplashScreenDrawable
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:34:13-37:17
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:37:13-40:17
 	android:resource
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:36:15-61
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:39:15-61
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:35:15-79
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:38:15-79
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:38:13-41:29
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:41:13-44:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:39:17-68
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:42:17-68
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:39:25-66
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:42:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:40:17-76
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:17-76
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:40:27-74
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:27-74
 meta-data#flutter_deeplinking_enabled
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:13-90
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:13-90
 	android:value
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:67-87
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:67-87
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:43:24-66
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:24-66
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:sanofievelyn.com+data:scheme:sanofievelyn
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:44:13-49:29
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:13-52:29
 	android:autoVerify
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:44:28-53
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:28-53
 action#android.intent.action.VIEW
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:45:17-69
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:17-69
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:45:25-66
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:25-66
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:17-76
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:49:17-76
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:46:27-73
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:49:27-73
 category#android.intent.category.BROWSABLE
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:17-78
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:50:17-78
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:47:27-75
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:50:27-75
 data
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:17-87
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:51:17-87
 	android:host
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:53-84
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:51:53-84
 	android:scheme
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:48:23-52
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:51:23-52
 meta-data#flutterEmbedding
-ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:55:9-57:33
+ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:58:9-60:33
 	android:value
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:57:13-30
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:60:13-30
 	android:name
-		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:56:13-44
+		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml:59:13-44
 uses-sdk
 INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\main\AndroidManifest.xml
@@ -195,10 +301,24 @@ MERGED from [:app_links] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano
 MERGED from [:app_links] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\app_links\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:device_calendar] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\device_calendar\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:device_calendar] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\device_calendar\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_native_splash] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_native_splash] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\flutter_native_splash\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:google_sign_in_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:google_sign_in_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:permission_handler_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -215,82 +335,136 @@ MERGED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T09443
 MERGED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:webview_flutter_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:webview_flutter_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\8a75d2355ad5d3dc15a625a8aa482e72\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\8a75d2355ad5d3dc15a625a8aa482e72\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.browser:browser:1.5.0] C:\Users\evely\.gradle\caches\transforms-3\74f2c7c0548d1c691541664d469ce6c8\transformed\browser-1.5.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.browser:browser:1.5.0] C:\Users\evely\.gradle\caches\transforms-3\74f2c7c0548d1c691541664d469ce6c8\transformed\browser-1.5.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.webkit:webkit:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\542be7ae61ebe04463abd6f44be7f34e\transformed\webkit-1.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.webkit:webkit:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\542be7ae61ebe04463abd6f44be7f34e\transformed\webkit-1.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.window:window-java:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\66bff9864bf07d24e0d92e3230434921\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
-MERGED from [androidx.window:window-java:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\66bff9864bf07d24e0d92e3230434921\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
-MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\de857ad9e3d13eb919e7eba5c28b51d8\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\de857ad9e3d13eb919e7eba5c28b51d8\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\15bf885b5ce4a6b304ba707d91f6e9b7\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\15bf885b5ce4a6b304ba707d91f6e9b7\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\fa8bcdefd8ebe1d00d9d20ce0332e046\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\fa8bcdefd8ebe1d00d9d20ce0332e046\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\evely\.gradle\caches\transforms-3\d0f0d9a9a1204edcb169670c448d3468\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\evely\.gradle\caches\transforms-3\d0f0d9a9a1204edcb169670c448d3468\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity:1.8.1] C:\Users\evely\.gradle\caches\transforms-3\07facec72c0378a59edb4ed62e2f6f8c\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.8.1] C:\Users\evely\.gradle\caches\transforms-3\07facec72c0378a59edb4ed62e2f6f8c\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\cf3b0a7a36470266d20168602e33c78c\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\cf3b0a7a36470266d20168602e33c78c\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\4480faeef111a7cf33225bc251a94899\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\4480faeef111a7cf33225bc251a94899\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\055d0f2124424b113432a4f356e40bed\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\055d0f2124424b113432a4f356e40bed\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\a2bab00d024ed5d6747e286f09fd742f\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\a2bab00d024ed5d6747e286f09fd742f\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\0a07d7e656eb204a95b235884f2e5600\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\0a07d7e656eb204a95b235884f2e5600\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\08af219fd807a08b81d57d787716e943\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\08af219fd807a08b81d57d787716e943\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\539c0cbee3591084ee2475b54cdb4176\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\539c0cbee3591084ee2475b54cdb4176\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\fa877aa0d05590af9347a42ff16aa86f\transformed\jetified-core-ktx-1.13.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\fa877aa0d05590af9347a42ff16aa86f\transformed\jetified-core-ktx-1.13.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\af7e1e18199cc5ae3a776b2a22de6389\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\af7e1e18199cc5ae3a776b2a22de6389\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\ffe37a850cdee6e538b414d22d98e5be\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\ffe37a850cdee6e538b414d22d98e5be\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\afd66b5919addffac4606cf607b8b033\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\afd66b5919addffac4606cf607b8b033\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\cd4e28c9b38776c87ec081a8e152db11\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\cd4e28c9b38776c87ec081a8e152db11\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\evely\.gradle\caches\transforms-3\af1b7a83fe36fc87b011cb9a6e367e3c\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\evely\.gradle\caches\transforms-3\af1b7a83fe36fc87b011cb9a6e367e3c\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\ac7c23623c3d77d45d5f546889fd2ded\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\ac7c23623c3d77d45d5f546889fd2ded\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\f85e554a31a9808477c2767553683856\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\f85e554a31a9808477c2767553683856\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\8f7a65b4b176bec321baa460eb796802\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\8f7a65b4b176bec321baa460eb796802\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\b47d82fa6291d511b9fa7c9df5c5ab41\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\b47d82fa6291d511b9fa7c9df5c5ab41\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\b88f0ea005844bb9d31ee9beba972fce\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\b88f0ea005844bb9d31ee9beba972fce\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\evely\.gradle\caches\transforms-3\84163e3f1bb8c6db4d22cd7bf50bdd30\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\evely\.gradle\caches\transforms-3\84163e3f1bb8c6db4d22cd7bf50bdd30\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\94c65880d3b06932ae0ecaf585abb219\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\94c65880d3b06932ae0ecaf585abb219\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
-MERGED from [org.microg:safe-parcel:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\5d7617698f0c416524a4e85af99d2b3a\transformed\jetified-safe-parcel-1.7.0\AndroidManifest.xml:10:5-12:41
-MERGED from [org.microg:safe-parcel:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\5d7617698f0c416524a4e85af99d2b3a\transformed\jetified-safe-parcel-1.7.0\AndroidManifest.xml:10:5-12:41
-MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
-MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\evely\.gradle\caches\transforms-3\3c62a931ce4fd5ac320716ac2f3b3311\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\evely\.gradle\caches\transforms-3\3c62a931ce4fd5ac320716ac2f3b3311\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\evely\.gradle\caches\transforms-3\02bb0a5660f04617d7049dd2f91c713b\transformed\jetified-play-services-location-21.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.2.0] C:\Users\evely\.gradle\caches\transforms-3\02bb0a5660f04617d7049dd2f91c713b\transformed\jetified-play-services-location-21.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\a07643b6cc2ac7ab43e9fa39f185e164\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\a07643b6cc2ac7ab43e9fa39f185e164\transformed\appcompat-1.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.5.0] C:\Users\evely\.gradle\caches\transforms-3\a826b86c96d5f0bd9bbefd7ecc23074d\transformed\browser-1.5.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.5.0] C:\Users\evely\.gradle\caches\transforms-3\a826b86c96d5f0bd9bbefd7ecc23074d\transformed\browser-1.5.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\8f6f644be63e4ef22905f076574b69f8\transformed\webkit-1.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\8f6f644be63e4ef22905f076574b69f8\transformed\webkit-1.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window-java:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\3e1eaf9d83ca01c78ebe746a118d1d0e\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
+MERGED from [androidx.window:window-java:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\3e1eaf9d83ca01c78ebe746a118d1d0e\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\evely\.gradle\caches\transforms-3\961c8518a4e6882946c8ff91316aff2a\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\evely\.gradle\caches\transforms-3\961c8518a4e6882946c8ff91316aff2a\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\3468c3518b0e31672806723ca1f5c790\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\3468c3518b0e31672806723ca1f5c790\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:19:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\f12b48337b14cb9e57947b091a6c7a21\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\f12b48337b14cb9e57947b091a6c7a21\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\evely\.gradle\caches\transforms-3\43162177acc73787f2b262190f36c742\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\evely\.gradle\caches\transforms-3\43162177acc73787f2b262190f36c742\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\evely\.gradle\caches\transforms-3\62c5bc7b24be484da1510f0091f075d9\transformed\jetified-play-services-auth-base-18.0.10\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\evely\.gradle\caches\transforms-3\62c5bc7b24be484da1510f0091f075d9\transformed\jetified-play-services-auth-base-18.0.10\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\evely\.gradle\caches\transforms-3\4649634a21152f2dc725540fe0c3f24a\transformed\jetified-play-services-fido-20.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.0.1] C:\Users\evely\.gradle\caches\transforms-3\4649634a21152f2dc725540fe0c3f24a\transformed\jetified-play-services-fido-20.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] C:\Users\evely\.gradle\caches\transforms-3\d46cabdaaedb57e3cb4ea3162344bd3a\transformed\jetified-firebase-installations-interop-17.1.1\AndroidManifest.xml:17:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] C:\Users\evely\.gradle\caches\transforms-3\d46cabdaaedb57e3cb4ea3162344bd3a\transformed\jetified-firebase-installations-interop-17.1.1\AndroidManifest.xml:17:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\evely\.gradle\caches\transforms-3\55d9d5949c959b4597f3ffa80259652f\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\evely\.gradle\caches\transforms-3\55d9d5949c959b4597f3ffa80259652f\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\evely\.gradle\caches\transforms-3\6968ad9b9029f7e00a046f424deae4ea\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\evely\.gradle\caches\transforms-3\6968ad9b9029f7e00a046f424deae4ea\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\evely\.gradle\caches\transforms-3\2e12281122eb3aeda014c0a304a6ca67\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\evely\.gradle\caches\transforms-3\2e12281122eb3aeda014c0a304a6ca67\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\35d97710e5ea87456bf9a61ca8cd7392\transformed\loader-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\35d97710e5ea87456bf9a61ca8cd7392\transformed\loader-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\f2dfeec3684636f1d37f4f06abf28c0d\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.2] C:\Users\evely\.gradle\caches\transforms-3\f2dfeec3684636f1d37f4f06abf28c0d\transformed\jetified-appcompat-resources-1.4.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\6b0bd96cdbd1046bc5d8b56efa789f66\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\6b0bd96cdbd1046bc5d8b56efa789f66\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\f061f0917dc75f65d51dbdce09dcbee3\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\f061f0917dc75f65d51dbdce09dcbee3\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.activity:activity:1.8.1] C:\Users\evely\.gradle\caches\transforms-3\c5ae01f7b1b1ca580816ccf92cbec6f7\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.1] C:\Users\evely\.gradle\caches\transforms-3\c5ae01f7b1b1ca580816ccf92cbec6f7\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2149da8f52cf6291af158bb693ab1540\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2149da8f52cf6291af158bb693ab1540\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\97e3a5e7ce8c9b13ea035127c6538bb4\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\97e3a5e7ce8c9b13ea035127c6538bb4\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\c8274f3ecb14997c347e653c37f062b5\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\c8274f3ecb14997c347e653c37f062b5\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\875861a81dbdf5361ced189f8d15d536\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\875861a81dbdf5361ced189f8d15d536\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\fe5775e7ea3c15cca13528ead793b6e7\transformed\jetified-core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\fe5775e7ea3c15cca13528ead793b6e7\transformed\jetified-core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\3b638ad1eba0731ab59c4374464cc798\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\3b638ad1eba0731ab59c4374464cc798\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\37448357f56936088b7be93feedf111c\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\37448357f56936088b7be93feedf111c\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\bdad6690976a1912152916ee10960d23\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\bdad6690976a1912152916ee10960d23\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\91d54e36b2f24b16f1e9b52ba2fda20e\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\91d54e36b2f24b16f1e9b52ba2fda20e\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\evely\.gradle\caches\transforms-3\5c061f1ccc4da5a02b76a215400645f7\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\evely\.gradle\caches\transforms-3\5c061f1ccc4da5a02b76a215400645f7\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\evely\.gradle\caches\transforms-3\cb4b4ea99a733944ef7f178551f9f53b\transformed\multidex-2.0.1\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\evely\.gradle\caches\transforms-3\cb4b4ea99a733944ef7f178551f9f53b\transformed\multidex-2.0.1\AndroidManifest.xml:20:5-43
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\38f3bf56d61830690188045b21cccab8\transformed\localbroadcastmanager-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\38f3bf56d61830690188045b21cccab8\transformed\localbroadcastmanager-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\6558bdd4d7dd2cdd22515db635d788d6\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\6558bdd4d7dd2cdd22515db635d788d6\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\b76863aababba60024c0d574ebaaf804\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\b76863aababba60024c0d574ebaaf804\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2b973c414c4f88a42a3f88b6938c84bc\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2b973c414c4f88a42a3f88b6938c84bc\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\c29d05b1287a30a629434787f2fdb6b9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\c29d05b1287a30a629434787f2fdb6b9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\fe1f074f92640e79d73177ad4feee69d\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\fe1f074f92640e79d73177ad4feee69d\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\evely\.gradle\caches\transforms-3\ea40705270374c9c5ca903aa9a137076\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\evely\.gradle\caches\transforms-3\ea40705270374c9c5ca903aa9a137076\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:17.1.5] C:\Users\evely\.gradle\caches\transforms-3\e49836b10abed7e951537944a445bd84\transformed\jetified-firebase-components-17.1.5\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:17.1.5] C:\Users\evely\.gradle\caches\transforms-3\e49836b10abed7e951537944a445bd84\transformed\jetified-firebase-components-17.1.5\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] C:\Users\evely\.gradle\caches\transforms-3\9ebf42e8f6d5e3ab7c55261a8f2831ab\transformed\jetified-transport-api-3.1.0\AndroidManifest.xml:18:5-44
+MERGED from [com.google.android.datatransport:transport-api:3.1.0] C:\Users\evely\.gradle\caches\transforms-3\9ebf42e8f6d5e3ab7c55261a8f2831ab\transformed\jetified-transport-api-3.1.0\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\evely\.gradle\caches\transforms-3\097a45f8f0e588a3d634f13e9eacbf56\transformed\jetified-firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\evely\.gradle\caches\transforms-3\097a45f8f0e588a3d634f13e9eacbf56\transformed\jetified-firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2d8a1cc82abaa24f2ef24f3241e226eb\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\2d8a1cc82abaa24f2ef24f3241e226eb\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\7542a32512ccf9d40a4932ab066760b9\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\7542a32512ccf9d40a4932ab066760b9\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\c80e1c64513162215f11a262a3b623a5\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\c80e1c64513162215f11a262a3b623a5\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [org.microg:safe-parcel:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\acb1aa28636c4ced75ce6bad6ace1dd1\transformed\jetified-safe-parcel-1.7.0\AndroidManifest.xml:10:5-12:41
+MERGED from [org.microg:safe-parcel:1.7.0] C:\Users\evely\.gradle\caches\transforms-3\acb1aa28636c4ced75ce6bad6ace1dd1\transformed\jetified-safe-parcel-1.7.0\AndroidManifest.xml:10:5-12:41
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\evely\.gradle\caches\transforms-3\0b241bb76ff7732bbd9bc74b4d6f7308\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\evely\.gradle\caches\transforms-3\0b241bb76ff7732bbd9bc74b4d6f7308\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
 INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml
 INJECTED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml
 	tools:overrideLibrary
@@ -305,20 +479,136 @@ uses-permission#android.permission.CAMERA
 ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:7:5-64
 MERGED from [:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-65
 MERGED from [:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-65
-MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:22:5-65
-MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:22:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:22:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:22:5-65
 	android:name
 		ADDED from C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\android\app\src\debug\AndroidManifest.xml:7:22-62
 uses-permission#android.permission.RECORD_AUDIO
 ADDED from [:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-71
 	android:name
 		ADDED from [:camera_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\camera_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-68
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:9:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:9:5-68
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-65
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-79
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-76
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-19:72
+	android:exported
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
+	android:permission
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-69
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-107
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-26:19
+	android:exported
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-97
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-25:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-78
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:24:25-75
+receiver#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:28:9-35:20
+	android:exported
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-36
+	android:permission
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-73
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-98
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-34:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:17-81
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:33:25-78
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:37:9-41:19
+MERGED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:24:9-30:19
+MERGED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:24:9-30:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:31:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:37:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:38:13-40:85
+	android:value
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:40:17-82
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:39:17-128
+provider#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider
+ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:43:9-47:38
+	android:authorities
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-88
+	android:exported
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:46:13-37
+	android:initOrder
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:47:13-35
+	android:name
+		ADDED from [:firebase_messaging] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-102
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
+ADDED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [:firebase_core] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
 uses-permission#android.permission.USE_BIOMETRIC
 ADDED from [:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-72
-MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
-MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
 	android:name
 		ADDED from [:local_auth_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\local_auth_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-69
+service#com.baseflow.geolocator.GeolocatorLocationService
+ADDED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:56
+	android:enabled
+		ADDED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-35
+	android:exported
+		ADDED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+	android:foregroundServiceType
+		ADDED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-53
+	android:name
+		ADDED from [:geolocator_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-77
 activity#io.flutter.plugins.urllauncher.WebViewActivity
 ADDED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
 	android:exported
@@ -327,159 +617,311 @@ ADDED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437
 		ADDED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
 	android:name
 		ADDED from [:url_launcher_android] C:\Users\evely\Downloads\sano-20240822T094437Z-001\sano\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:26:5-82
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:26:5-82
+MERGED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:26:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:11:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.1.0] C:\Users\evely\.gradle\caches\transforms-3\8a841ae71d4f9c6add4f1ca4c256d73c\transformed\jetified-play-services-cloud-messaging-17.1.0\AndroidManifest.xml:11:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:26:22-79
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\evely\.gradle\caches\transforms-3\3193430700d0b5cec72ed7c737746eab\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:33:17-96
 uses-permission#android.permission.USE_FINGERPRINT
-ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
 	android:name
-		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\dc0f67847eae1e60eb44a619ddb081ea\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\evely\.gradle\caches\transforms-3\6aa3f735bb21b04e4e29452bba36cf2b\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
 uses-library#androidx.window.extensions
-ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
 	android:required
-		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
 uses-library#androidx.window.sidecar
-ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
 	android:required
-		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\ca2831ae2c6fc49b1b8ae2254bb6e613\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
-provider#androidx.startup.InitializationProvider
-ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\ac7c23623c3d77d45d5f546889fd2ded\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\ac7c23623c3d77d45d5f546889fd2ded\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
-	tools:node
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:30:13-31
-	android:authorities
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+		ADDED from [androidx.window:window:1.2.0] C:\Users\evely\.gradle\caches\transforms-3\82db7d366cc0dba98ca5860d61576db7\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:29:9-40:20
 	android:exported
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
-	android:name
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
-meta-data#androidx.emoji2.text.EmojiCompatInitializer
-ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-	android:value
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
-	android:name
-		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\137f13d2fc461711d1387ebbecb4602c\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
-	android:protectionLevel
-		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
-	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
-permission#com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
-	android:protectionLevel
-		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
-	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
-uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
-	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
-uses-permission#com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
-	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\48ddf1e565b2f8b5a50c8f62aa007b94\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
-meta-data#androidx.lifecycle.ProcessLifecycleInitializer
-ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
-	android:value
-		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
-	android:name
-		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\ff88023eb69d74f7a0a0ed412b639c17\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
-meta-data#androidx.profileinstaller.ProfileInstallerInitializer
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-	android:value
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-receiver#androidx.profileinstaller.ProfileInstallReceiver
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-	android:enabled
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-	android:exported
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:31:13-36
 	android:permission
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:32:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:30:13-78
+meta-data#com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED
+ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:37:13-39:40
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:39:17-37
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:38:17-92
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:46:9-53:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:49:13-37
 	android:directBootAware
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:48:13-43
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-action#androidx.profileinstaller.action.INSTALL_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:47:13-82
+meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar
+ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:57:13-59:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:59:17-82
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-action#androidx.profileinstaller.action.SKIP_FILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:58:17-122
+meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar
+ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:60:13-62:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:62:17-82
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-action#androidx.profileinstaller.action.SAVE_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-action#androidx.profileinstaller.action.BENCHMARK_OPERATION
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\d02a74913b5bab87206c27e1a9b6abc5\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-uses-feature#android.hardware.camera
-ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:27:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:26:9-47
-uses-feature#android.hardware.camera.front
-ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
-uses-feature#android.hardware.camera.autofocus
-ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:35:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:34:9-57
-uses-feature#android.hardware.camera.flash
-ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
-uses-feature#android.hardware.screen.landscape
-ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
-uses-feature#android.hardware.wifi
-ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
-activity#com.journeyapps.barcodescanner.CaptureActivity
-ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
-	android:screenOrientation
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
-	android:clearTaskOnLaunch
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
-	android:stateNotNeeded
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
-	android:windowSoftInputMode
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+		ADDED from [com.google.firebase:firebase-messaging:23.4.1] C:\Users\evely\.gradle\caches\transforms-3\3affe4cda74537e4c973c271cf9c5a53\transformed\jetified-firebase-messaging-23.4.1\AndroidManifest.xml:61:17-119
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:26:13-37
 	android:theme
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:27:13-72
 	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\5885155e2ee6de358b557772b5b87e06\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.0.0] C:\Users\evely\.gradle\caches\transforms-3\9a61739ed83fa75d6c4f939c133847e7\transformed\jetified-play-services-auth-21.0.0\AndroidManifest.xml:34:13-89
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar
+ADDED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:16:17-130
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\evely\.gradle\caches\transforms-3\b39493241c8f7affd85fa18c2e43fda1\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:19:17-127
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\8823c2bef86cda476b46b669d3427f46\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:13:17-116
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:23:9-28:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:25:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:27:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:26:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:24:13-77
+meta-data#com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:35:13-37:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:37:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common:20.4.3] C:\Users\evely\.gradle\caches\transforms-3\c8b4035d5d496ffe42ed029c7a336a7c\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:36:17-109
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\b8abbc13279b84981edccb1a866c0317\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\evely\.gradle\caches\transforms-3\9ca685673537c4c6168f510ccd362564\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\6558bdd4d7dd2cdd22515db635d788d6\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evely\.gradle\caches\transforms-3\6558bdd4d7dd2cdd22515db635d788d6\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:30:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\evely\.gradle\caches\transforms-3\dda8fd78ebb2b940594b40460a520fa0\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+permission#com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+uses-permission#com.mycompany.sanofievelyn.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\evely\.gradle\caches\transforms-3\066676eee63f12a011f5af6b8405714b\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\evely\.gradle\caches\transforms-3\59b80db18009eea292475b55eb725f96\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\evely\.gradle\caches\transforms-3\ad51e2ea95d8a8f5534befef8e50fdf8\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
+ADDED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:27:13-29:85
+	android:value
+		ADDED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:29:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-datatransport:18.1.7] C:\Users\evely\.gradle\caches\transforms-3\a836ebf3afb2f121ad21f226e0760742\transformed\jetified-firebase-datatransport-18.1.7\AndroidManifest.xml:28:17-115
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:28:9-34:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:29:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:31:13-33:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:33:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\501595f2ef2d6d2b48352c8fef4611ce\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:32:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\evely\.gradle\caches\transforms-3\2a10a091948d4ad8e336479d5de505cd\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:33:13-132
+uses-feature#android.hardware.camera
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:27:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:26:9-47
+uses-feature#android.hardware.camera.front
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
+uses-feature#android.hardware.camera.autofocus
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:35:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:34:9-57
+uses-feature#android.hardware.camera.flash
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
+uses-feature#android.hardware.screen.landscape
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+uses-feature#android.hardware.wifi
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+activity#com.journeyapps.barcodescanner.CaptureActivity
+ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+	android:screenOrientation
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+	android:clearTaskOnLaunch
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+	android:stateNotNeeded
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+	android:windowSoftInputMode
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+	android:theme
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\evely\.gradle\caches\transforms-3\905e65a67942fd170f62b49f97b1dd44\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
