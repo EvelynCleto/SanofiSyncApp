@@ -23,7 +23,7 @@ Durante o desenvolvimento do Sanofi Sync, enfrentamos desafios que foram além d
 <h2 align="center">🎥 Demonstração do Aplicativo</h2>
 
 <p align="center">
-  <img src="demo.gif" alt="Sanofi Sync - Demonstração do Aplicativo" width="600"/>
+  <img src="demo.gif" alt="Sanofi Sync - Demonstração do Aplicativo"/>
 </p>
 
 ---
@@ -184,5 +184,5 @@ Para mais informações sobre o Sanofi Sync ou para colaborações, entre em con
 ---
 
 <h3 align="center"><strong>Sanofi Sync</strong> – Desenvolvido para simplificar e revolucionar a gestão na Medley, transformando desafios em soluções digitais seguras e eficientes.</h3>
-```
+
 
