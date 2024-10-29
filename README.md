@@ -1,7 +1,8 @@
+<h1 align="center">🚀 Sanofi Sync</h1>
 
-# 🚀 Sanofi Sync
-
-**Sanofi Sync** é uma plataforma projetada para transformar a gestão de treinamentos, controle de horas, reservas de salas e de livros, e o acompanhamento de produtividade dos colaboradores na Medley. Esta solução moderna substitui métodos manuais e obsoletos, como planilhas em Excel e registros em papel, tornando os processos mais seguros, precisos e acessíveis.
+<p align="center">
+  <strong>Sanofi Sync</strong> é uma plataforma projetada para transformar a gestão de treinamentos, controle de horas, reservas de salas e de livros, e o acompanhamento de produtividade dos colaboradores na Medley. Esta solução moderna substitui métodos manuais e obsoletos, como planilhas em Excel e registros em papel, tornando os processos mais seguros, precisos e acessíveis.
+</p>
 
 ---
 
@@ -11,17 +12,21 @@ Durante o desenvolvimento do Sanofi Sync, enfrentamos desafios que foram além d
 
 ---
 
-## 🎥 Nossa Apresentação
+<h2 align="center">🎥 Nossa Apresentação</h2>
 
-![Sanofi Sync - Demonstração do Aplicativo](ppt.gif)
+<p align="center">
+  <img src="ppt.gif" alt="Sanofi Sync - Demonstração do Aplicativo" width="600"/>
+</p>
 
+---
 
-## 🎥 Demonstração do Aplicativo
+<h2 align="center">🎥 Demonstração do Aplicativo</h2>
 
-Veja o **Sanofi Sync** em funcionamento:
+<p align="center">
+  <img src="demo.gif" alt="Sanofi Sync - Demonstração do Aplicativo" width="600"/>
+</p>
 
-![Sanofi Sync - Demonstração do Aplicativo](demo.gif)
-
+---
 
 ## 💡 Funcionalidades Destacadas
 
@@ -64,12 +69,16 @@ Veja o **Sanofi Sync** em funcionamento:
 
 Para alcançar o desempenho e a escalabilidade desejada, utilizamos as seguintes tecnologias:
 
+<p align="center">
+
 | Tecnologia           | Descrição                                                        |
 |----------------------|------------------------------------------------------------------|
 | **Frontend**         | Flutter (Dart) – Interface moderna e responsiva                 |
 | **Backend**          | Node.js e Express – Processamento rápido e eficiente            |
 | **Banco de Dados**   | Firebase Firestore e PostgreSQL – Armazenamento seguro em tempo real |
 | **CI/CD**            | GitHub Actions – Automatização de deploys                       |
+
+</p>
 
 ---
 
@@ -172,7 +181,8 @@ Para mais informações sobre o Sanofi Sync ou para colaborações, entre em con
 - **LinkedIn**: [Evelyn Cleto](https://www.linkedin.com/in/evelyncleto)
 - **GitHub**: [EvelynCleto](https://github.com/EvelynCleto)
 
-
 ---
 
-**Sanofi Sync** – Desenvolvido para simplificar e revolucionar a gestão na Medley, transformando desafios em soluções digitais seguras e eficientes.
+<h3 align="center"><strong>Sanofi Sync</strong> – Desenvolvido para simplificar e revolucionar a gestão na Medley, transformando desafios em soluções digitais seguras e eficientes.</h3>
+```
+
