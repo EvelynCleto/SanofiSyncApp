@@ -1,35 +1,3 @@
-Você pode adicionar o GIF que me enviou ao seu repositório GitHub e incorporá-lo no README para que ele seja exibido automaticamente. Abaixo está o passo a passo e o README atualizado, incluindo o GIF.
-
-### Passo a Passo
-
-1. **Faça Upload do GIF para o Repositório**
-   - Salve o GIF diretamente no diretório do repositório local.
-   - Nomeie o arquivo de forma clara, por exemplo, `demo.gif`.
-
-2. **Faça o Commit e o Push do GIF**
-   - No terminal, adicione o GIF ao repositório:
-     ```bash
-     git add demo.gif
-     ```
-   - Faça o commit:
-     ```bash
-     git commit -m "Adiciona GIF de demonstração do Sanofi Sync"
-     ```
-   - Envie o GIF para o GitHub:
-     ```bash
-     git push origin main
-     ```
-
-3. **Atualize o README**
-   - No arquivo `README.md`, insira o código para exibir o GIF.
-
----
-
-### README Completo com o GIF
-
-Aqui está o README atualizado com o GIF incluído:
-
----
 
 # 🚀 Sanofi Sync
 
