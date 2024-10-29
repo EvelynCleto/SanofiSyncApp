@@ -6,7 +6,8 @@
 ---
 
 ---
-                                                                             ![Sanofi Sync - Demonstração do Aplicativo](ppt.gif)
+
+![Sanofi Sync - Demonstração do Aplicativo](ppt.gif)
 
 ---
 
