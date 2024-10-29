@@ -1,7 +1,7 @@
 
 # 🚀 Sanofi Sync
 
-**Sanofi Sync** é uma plataforma poderosa e integrada projetada para transformar a gestão de treinamentos, controle de horas, reservas de salas e de livros, e o acompanhamento de produtividade dos colaboradores na Medley. Esta solução moderna substitui métodos manuais e obsoletos, como planilhas em Excel e registros em papel, tornando os processos mais seguros, precisos e acessíveis.
+**Sanofi Sync** é uma plataforma projetada para transformar a gestão de treinamentos, controle de horas, reservas de salas e de livros, e o acompanhamento de produtividade dos colaboradores na Medley. Esta solução moderna substitui métodos manuais e obsoletos, como planilhas em Excel e registros em papel, tornando os processos mais seguros, precisos e acessíveis.
 
 ---
 
